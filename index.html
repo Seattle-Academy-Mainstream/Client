@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>Demo: Getting an email address using the Google+ Sign-in button</title>
+    <!-- Include the API client and Google+ client. -->
+    <script src = "js/jquery.js"></script>
+    <script src = "js/imagesloaded.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    <script src = "js/main.js"></script>
+    <script src = "js/jquery.guillotine.min.js"></script>
+    <!-- bootstrap responsive ibclude -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/remote.js"></script>
+    <script src = "https://plus.google.com/js/client:plusone.js"></script>
+    <script type="text/javascript" src="js/signin.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.guillotine.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="http://bootswatch.com/cosmo/bootstrap.min.css">
+    
+  </head>
+
+  <body>
+    <div class = "logged-in">
+      <header class="topbar row">
+        <div class = "home">
+          <div class = "col-xs-3">
+            <div class = "logged-in-text">
+            </div>
+          </div>
+          <div class = "categories col-xs-6">
+             <ul class="nav nav-pills">
+              <li category = "All" class="active"><a>All</a></li>
+              <li category = "Science"><a>Science</a></li>
+              <li category = "Enviornment"><a>Enviornment</a></li>
+              <li category = "Sports"><a>Sports</a></li>
+            </ul>
+          </div>
+          <div class = "new-post-button col-xs-3">
+            <button type="button" class="btn btn-default">New Post</button>
+          </div>
+        </div>
+        
+        <div class="new-post" role="search">
+          <div class="col-sm-6 col-xs-12 form-group post-text">
+            <input type="text" class="form-control post-textbox" placeholder="What's on your mind?">
+          </div>
+          <div class="col-xs-12 col-sm-5">
+             <select class="choose-category form-control">
+              <option disabled selected>Choose Category</option>
+              <option value="Enviornment">Enviornment</option>
+              <option value="Science">Science</option>
+              <option value="Sports">Sports</option>
+            </select>
+            <span class="btn btn-default btn-file">
+              Attach Image<input type="file" onchange="ImageUploaded()">
+            </span>
+
+            <button type="submit" class="post-submit-button btn btn-default">Submit</button>
+          </div>
+               
+          <div class = "back-button col-sm-1">
+            <button type="button" class="btn btn-default">Back</button>
+          </div>
+        </div>
+
+      </header>
+      <div id="Posts">
+      </div>
+    </div>
+
+    <div class = "logged-out row col-xs-6 col-xs-offset-3">
+      <div class="jumbotron">
+        <div>
+          <h1>MainStream</h1>
+          <p>This is a site designed to allow Seattle Academy students to interact as a community. Login below with your Seattle Academy email address.</p>
+          <div id="gConnect" class="button login-button">
+            <button class="g-signin"
+                data-scope="email"
+                data-clientid="533332380921-7m8eoi4968kvl1mmr0kk3clco25loemg.apps.googleusercontent.com"
+                data-callback="onSignInCallback"
+                data-theme="dark"
+                data-cookiepolicy="single_host_origin">
+            </button>
+          </div>
+        </div>
+        <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+      </div>
+    </div>
+  </body>
+</html>
