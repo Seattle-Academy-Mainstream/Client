@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/font-awesome.min.css"/>	
+
+		<!-- this sets up less -->
+		<link rel="stylesheet/less" type="test/css" href="css/default.less"/>	
+		<script src="js/less.js" type="text/javascript"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id = "top-bar">
+			<div class = "button" id = "new-post"></div>
+			<div class = "button" onclick = "ToggleSettings();" id = "settings"></div>
+			<!-- <p id = "username">isaaczinda</p> -->
+		</div>
+		<div id = "settings-bar" class = "active">
+			<p id = "logged-in-text">Logged in as <strong>isaaczinda</strong></a>
+			<div class = "button">Log Out</div>
+			<div class = "button">Help</div>
+			<div class = "button">Mission</div>
+			<div class = "button">About</div>
+		</div>
+		<div id = "content">
+			<div  class = "post">
+				<div class = "footer">
+					<div class = "author">
+						<strong>isaaczinda</strong> posted yesterday
+					</div>
+				</div>
+				<table>
+					<tr class = "content">
+						<td class = "upvotes">
+							<div id = "upvote-icon" onclick = "ToggleUpvote();">
+							</div>
+							<div id = "upvote-number">
+								3
+							</div>
+						</td>
+						<td class = "text">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue mattis pharetra. Nam porta risus ipsum, eget porttitor orci posuere vel.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,373 @@
+@color-primary: rgb(81, 106, 204);
+@color-secondary: rgb(100, 106, 150);
+@color-tertiary: rgb(100, 50, 150);
+@color-background: rgb(100, 100, 100);
+
+@primary-text-color: #000000;
+@secondary-text-color: #777777;
+
+// buttons
+@button-margin: .2em;
+@button-height: 2.32em;
+@button-hover-color-change: #111111;
+@button-click-color-change: #111111;
+
+
+#textarea { 
+	background-color: white;
+ 	border-color:#cccccc; 
+ 	border-width:4px; 
+ 	border-radius:10px; 
+ 	margin-bottom: .4em;
+ 	margin-top: .2em;
+ 	margin-right: 0em;
+ 	margin-left: 0em;
+
+ 	padding:.2em; 
+ 	border-style:solid;  
+ 	color: @primary-text-color;
+}
+
+#textarea.dim-text
+{
+	color: @secondary-text-color !important;
+}
+
+#new-post-container
+{
+
+	padding: .2em;
+	padding-bottom: .4em;
+	padding-left: .4em;
+	padding-right: .4em;
+	margin-top: .2em;
+	border-radius: .2em;
+	background-color: @color-secondary;
+}
+
+#back
+{
+	@back-button-width: 2.84em;
+	background-image: url("../img/back.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @back-button-width;
+	height: @button-height;
+}
+
+.button
+{
+	cursor: pointer;
+}
+
+
+
+#top-bar .button > div
+{
+	margin: .1em;
+	display: inline-block;
+}
+
+#top-bar .button .button-text
+{
+	padding-top: .2em;
+	vertical-align: top;
+	font-size: 1.5em;
+}
+
+/*sets the style for all buttons in the top bar*/
+#top-bar .button
+{
+	background-color: @color-secondary;
+	display: inline-block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+#new-post-container .button
+{
+	padding: .4em;
+	background-color: @color-tertiary;
+	display: inline-block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+#image-control-buttons
+{
+	margin-top: .4em;
+}
+
+#new-post-container .button:hover
+{
+
+	background-color: @color-tertiary - @button-hover-color-change;
+}
+
+#new-post-container .button:active
+{
+
+	background-color: @color-tertiary - @button-hover-color-change - @button-click-color-change;
+}
+
+#settings-bar .button
+{
+	padding: .2em;
+	background-color: @color-tertiary;
+	display: block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+#logged-in-text
+{
+	margin: .2em;
+	margin-bottom: .4em;
+	padding: 0em;
+}
+
+#settings-bar .button:hover
+{
+
+	background-color: @color-tertiary - @button-hover-color-change;
+}
+
+.right
+{
+	float: right;
+}
+
+.left
+{
+	float: left;
+}
+
+#settings
+{
+	float: right;
+	@write-button-width: 2.32em;
+	
+	background-image: url("../img/settings.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#settings-bar
+{
+	padding: .2em;
+	border-radius: .2em;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	background-color: @color-secondary;
+}
+
+#content .post
+{
+	display: block;
+	padding: .2em;
+	border-radius: .2em;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	background-color: @color-primary;
+}
+
+#upvote-number
+{
+	text-align: center;
+}
+
+#upvote-icon
+{
+	//center it
+	margin-left: auto;
+	margin-right: auto;
+
+	cursor: pointer;
+	background-image: url("../img/upvote.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 1.61em;
+	height: .92em;
+	background-color: transparent;
+}
+
+#upvote-icon:hover
+{
+	background-image: url("../img/upvote-hover.png");
+}
+
+#upvote-icon.active
+{
+	background-image: url("../img/upvote-click.png");
+}
+
+.post .upvotes
+{
+	width: 2em;
+	margin: 0em;
+	padding: 0em;
+}
+.post .text
+{
+	margin: 0em;
+	padding: 0em;
+}
+
+.post .author
+{
+	font-size: 1em;
+	padding-left: .2em;
+}
+
+#new-post
+{
+	@write-button-width: 2.84em;
+	
+	background-image: url("../img/new-post.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#finish-post
+{
+	@write-button-width: 2.84em;
+	background-image: url("../img/finish-post.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#attach-image
+{
+	@write-button-width: 2em;
+	background-image: url("../img/attach-image.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#username
+{
+	// if the width is less than the width of the text, instead of going onto a new 
+	//line it will stack
+	text-align: right;
+
+	margin: 0em;
+	padding-left: 0px;
+
+	display: block;
+	font-size: 1em;
+	padding-top: .5em;
+	padding-right: .5em;
+	float: right;
+	display: inline;
+}
+
+#top-bar .button:hover
+{
+
+	background-color: @color-secondary - @button-hover-color-change;
+}
+
+#top-bar .button:active
+{
+
+	background-color: @color-secondary - @button-hover-color-change - @button-click-color-change;
+}
+
+body
+{
+	background-color: @color-background;
+	padding: 0em;
+	margin: 0em;
+}
+
+#top-bar
+{
+	padding: 0em;
+	margin: 0em;
+	position: relative;
+	width: 100%;
+	background-color: @color-primary;
+}
+
+// the active class always shows
+.active
+{
+	visibility: visible !important;
+}
+
+
+#content
+{
+	position: relative;
+	width: 100%;
+}
+
+#image-container
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//this is for phones
+@media (max-width: 499px)
+{
+	.button-text
+	{
+		display: none !important;
+	}
+
+	body
+	{
+		font-size: 20pt;
+	}
+
+	#image-container
+	{
+		width: 100%;
+	}
+}
+
+//this is for tablets and computers
+@media (min-width: 500px)
+{
+	body
+	{
+		font-size: 12pt;
+	}
+
+	#image-upload
+	{
+		padding-top: .6em;
+		padding-bottom: .5em; 
+		width: 100%;
+		display: block;
+	}
+
+	#new-post-container
+	{
+		padding-top: .5em;
+		padding-right: 1em;
+		padding-left: 1em;
+		margin-left: auto;
+		margin-right: auto;
+		width: 40%;
+		display: block;
+	}
+}

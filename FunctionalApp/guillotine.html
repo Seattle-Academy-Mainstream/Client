@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Demo: Getting an email address using the Google+ Sign-in button</title>
+    <!-- Include the API client and Google+ client. -->
+    <script src = "js/jquery.js"></script>
+    <script src="js/jquery.guillotine.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.guillotine.css">
+    <style>
+      #container
+      {
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        /*max-width: 100%;*/
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+  	<script>
+
+    // function UploadImage(input)
+    // {
+    //   if (input.files && input.files[0]) 
+    //   {
+    //     var reader = new FileReader();
+        
+    //     reader.onload = function (e) 
+    //     {
+    //       //this is the base 64 image string
+    //       var ImageString = e.target.result;
+    //     }
+        
+    //     reader.readAsDataURL(input.files[0]);
+    //   }
+    // }
+
+  	$(document).ready(function()
+  	{
+      //sets up the cropper
+  		var picture = $('#thepicture');  // Must be already loaded or cached!
+      picture.guillotine({width: 640, height: 480});
+
+      for(var i = 0; i < 10; i++)
+      {
+        //picture.guillotine('zoomOut');
+      }
+
+      //picture.guillotine('center');
+
+
+      $('#zoom-in-button').click(function(){
+        picture.guillotine('zoomIn');
+      });
+      $('#zoom-out-button').click(function(){
+        picture.guillotine('zoomOut');
+      });
+      $('#rotate-right-button').click(function(){
+        picture.guillotine('rotateRight');
+      });
+      $('#rotate-left-button').click(function(){
+        picture.guillotine('rotateLeft');
+      });
+  	});
+		
+	  </script>
+
+  	  <div id = "container">
+  		  <img id = "thepicture" src="img/test.jpg">
+  		</div>
+      <div>
+        <button id = "rotate-left-button">Rotate Left</button>
+        <button id = "rotate-right-button">Rotate Right</button>
+        <button id = "zoom-in-button">Zoom In</button>
+        <button id = "zoom-out-button">Zoom Out</button>
+      </div>
+    <!-- Attach Image: <input id = "ImageUploadButton" type="file"> -->
+  </body>
+</html>

@@ -206,14 +206,4 @@ function InitialHtmlSetup()
 		//binds the button
 		BindUpvote(Posts[i]["ID"]);
 	}
-
-	//append the newly added items
-	// $("#Posts").masonry('appended', $("#Posts div"));
-
-
-	imagesLoaded($("#Posts"), function() 
-	{
-	  	//layout the newly added items
-		// $('#Posts').masonry( 'layout');
-	});
 }
