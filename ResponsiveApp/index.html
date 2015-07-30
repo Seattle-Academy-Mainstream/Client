@@ -13,9 +13,9 @@
 	</head>
 	<body>
 		<div id = "top-bar">
-			<div class = "button" id = "new-post"></div>
-			<div class = "button" onclick = "ToggleSettings();" id = "settings"></div>
-			<!-- <p id = "username">isaaczinda</p> -->
+			<div class = "icon-button right" onclick = "ToggleSettings();"><div id = "settings"></div><div class = "button-text">settings</div></div>
+			<div class = "icon-button right" onclick = "Refresh();"><div id = "refresh"></div><div class = "button-text">refresh</div></div>
+			<div class = "icon-button" onclick = "window.location = 'new-post.html'"><div id = "new-post"></div><div class = "button-text">new post</div></div>
 		</div>
 		<div id = "settings-bar" class = "active">
 			<p id = "logged-in-text">Logged in as <strong>isaaczinda</strong></a>
@@ -34,9 +34,9 @@
 				<table>
 					<tr class = "content">
 						<td class = "upvotes">
-							<div id = "upvote-icon" onclick = "ToggleUpvote();">
+							<div class = "upvote-icon" onclick = "ToggleUpvote(this);">
 							</div>
-							<div id = "upvote-number">
+							<div class = "upvote-number">
 								3
 							</div>
 						</td>
@@ -45,7 +45,38 @@
 						</td>
 					</tr>
 				</table>
+				<div class = "post-image">
+					<img src = "img/test.png"/>
+				</div>
 			</div>
+
+
+			<div  class = "post">
+				<div class = "footer">
+					<div class = "author">
+						<strong>isaaczinda</strong> posted yesterday
+					</div>
+				</div>
+				<table>
+					<tr class = "content">
+						<td class = "upvotes">
+							<div class = "upvote-icon" onclick = "ToggleUpvote();">
+							</div>
+							<div class = "upvote-number">
+								3
+							</div>
+						</td>
+						<td class = "text">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue mattis pharetra. Nam porta risus ipsum, eget porttitor orci posuere vel.
+						</td>
+					</tr>
+				</table>
+				<div class = "post-image">
+					<img src = "img/test.png"/>
+				</div>
+			</div>
+
+
 		</div>
 	</body>
 </html>

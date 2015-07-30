@@ -1,8 +1,51 @@
 var Placeholder = "What's on your mind?";
+var Data = "";
+var picture;
 
-function ShowImageUpload()
+function PostPost()
 {
-  $("#image-upload").slideDown(500);
+
+  if(Data != "")
+  {
+    var Data = picture.guillotine("getData");
+    console.log(Data);
+  }
+
+  alert("Posted Post.");
+
+  window.location = "index.html";
+}
+
+function GetExtension(filename)
+{
+  var a = filename.split(".");
+  if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
+      return "";
+  }
+  return a.pop().toLowerCase();
+}
+
+function ImageUploaded()
+{
+  var file = document.querySelector('input[type=file]').files[0]; //sames as here
+  var reader = new FileReader();
+
+  reader.onload = function() 
+  {
+    Data = event.target.result;
+    $("#thepicture").attr("src", Data);
+
+    //set the text to the filename.
+    var Filename = file.name;
+    var Extension = GetExtension(file.name);
+
+    $("#image-name").html(Filename);
+
+    //slide down the image panel
+    $("#image-crop").slideDown(500);
+  }
+
+  reader.readAsDataURL(file); //reads the data as a URL
 }
 
 //clear the text box placeholder
@@ -18,13 +61,20 @@ function TextboxFocus(Item)
 
 $(document).ready(function()
 {
+  //hide the image bar
+  $("#image-crop").hide(0);
+
   //setup the placeholder
   $("#textarea").html(Placeholder);
 
   //once the image has loaded
-  $('img#thepicture').on('load', function()
+  $('#thepicture').on('load', function()
   {
-    var picture = $('#thepicture');  // Must be already loaded or cached!
+    picture = $('#thepicture');  // Must be already loaded or cached!
+
+    //reset
+    picture.guillotine('remove');
+
     //sets up the cropper
     picture.guillotine({width: 640, height: 480});
 
@@ -35,9 +85,6 @@ $(document).ready(function()
 
     picture.guillotine('center');
 
-    //hide the image bar
-    $("#image-upload").hide(0);
-
     $('#zoom-in-button').click(function(){
       picture.guillotine('zoomIn');
     });
@@ -45,10 +92,10 @@ $(document).ready(function()
       picture.guillotine('zoomOut');
     });
     $('#rotate-right-button').click(function(){
-      picture.guillotine('rotateRight');
+      picture.guillotine('rotateLeft');
     });
     $('#rotate-left-button').click(function(){
-      picture.guillotine('rotateLeft');
+      picture.guillotine('rotateRight');
     });
   });
 });

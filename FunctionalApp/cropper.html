@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Demo: Getting an email address using the Google+ Sign-in button</title>
+    <!-- Include the API client and Google+ client. -->
+    <script src = "js/jquery.js"></script>
+    <script src="js/cropper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/cropper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+  	<script>
+    	$(document).ready(function()
+    	{
+    		$('#ImagePreview').cropper(
+    		{
+    			aspectRatio: 1 / 1,
+    			crop: function(data) {
+      			console.log(data);
+      			}
+    		});
+    	});
+	  </script>
+    <div id="cropper-example-2">
+      <img id = "ImagePreview" src="img/test.jpg" alt="Picture">
+    </div>
+</html>

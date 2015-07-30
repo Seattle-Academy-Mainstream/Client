@@ -19,22 +19,29 @@
 	</head>
 	<body>
 		<div id = "top-bar">
-			<div class = "button"><div id = "back"></div><div class = "button-text">back</div></div>
-			<div class = "button right"><div id = "finish-post"></div><div class = "button-text">post</div></div>
-			<div class = "button right" onclick = "ShowImageUpload();"><div id = "attach-image"></div><div class = "button-text">attach</div></div>
+			<div class = "icon-button" onclick = "window.location = 'index.html'"><div id = "back"></div><div class = "button-text">back</div></div>
+			<div class = "icon-button right" onclick = "PostPost();"><div id = "finish-post"></div><div class = "button-text">post</div></div>
 		</div>
 		<div id = "new-post-container">
 			<div id = "textarea" class = "dim-text" contenteditable onfocus = "TextboxFocus(this);">	
 			</div>
-			<div id = "image-upload">
+			<div id = "upload-image">
+				<div class = "icon-button">
+					<input type="file" onchange="ImageUploaded()">
+					<div id = "attach-image"></div>
+					<div class = "button-text">attach image</div>
+				</div>
+				<div id = "image-name"></div>
+			</div>
+			<div id = "image-crop">
 				<div id = "image-container">
-					<img id = "thepicture" src="img/test.jpg">
+					<img id = "thepicture">
 				</div>
 				<div id = "image-control-buttons">
-					<div class = "button" id = "rotate-left-button">Rotate Left</div>
-					<div class = "button" id = "rotate-right-button">Rotate Right</div>
-					<div class = "button" id = "zoom-in-button">Zoom In</div>
-					<div class = "button" id = "zoom-out-button">Zoom Out</div>
+					<div class = "image-control-button" id = "rotate-left-button">Rotate Left</div>
+					<div class = "image-control-button" id = "rotate-right-button">Rotate Right</div>
+					<div class = "image-control-button" id = "zoom-in-button">Zoom In</div>
+					<div class = "image-control-button" id = "zoom-out-button">Zoom Out</div>
 				</div>
 			</div>
 		</div>
