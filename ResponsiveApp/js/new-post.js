@@ -1,14 +1,30 @@
 var Placeholder = "What's on your mind?";
-var Data = "";
 var picture;
+
+function BindUpvote(ID)
+{
+  //binds the button to the dom node
+  $("#" + ID + " .upvote-button").click(function()
+  {
+    Upvote($(this).parent().parent().attr('id'));
+  });
+}
 
 function PostPost()
 {
+  var Username = "isaaczinda";
 
-  if(Data != "")
+  //if a picture is attached, get the picture data
+  if($("#thepicture").attr("src") != "")
   {
     var Data = picture.guillotine("getData");
-    console.log(Data);
+    
+    //upload the post with the image
+    NewPostWithImage($("#textarea").val(), Username, $("#thepicture").attr("src"), $("#thepicture").attr("extension"));
+  }
+  else
+  {
+    NewPostWithImage($("#textarea").val(), Username);
   }
 
   alert("Posted Post.");
@@ -32,12 +48,16 @@ function ImageUploaded()
 
   reader.onload = function() 
   {
-    Data = event.target.result;
+    var Data = event.target.result;
     $("#thepicture").attr("src", Data);
+
 
     //set the text to the filename.
     var Filename = file.name;
     var Extension = GetExtension(file.name);
+
+    //store the extension
+    $("#thepicture").attr("extension", Extension);
 
     $("#image-name").html(Filename);
 
