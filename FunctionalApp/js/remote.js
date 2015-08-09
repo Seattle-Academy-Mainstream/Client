@@ -143,9 +143,6 @@ function Update(data)
 		$("#Posts").append(NewDiv);
 
 		BindUpvote(NewObject["ID"]);
-
-		//layout everything with Masonary
-		//$('#Posts').masonry( 'layout');
 	}
 }
 
@@ -164,8 +161,6 @@ function HtmlFromObject(InputObject)
 	$(NewDiv).addClass("masonary-brick all col-sm-6 col-sm-offset-3");
 	$(NewDiv).addClass(InputObject["Category"]);
 	$(NewDiv).attr("id", InputObject["ID"]);
-
-	// $(NewDiv).append("<p><strong>" + InputObject["Content"] + "</strong></p>");
 
 	//uses a special thing if we have upvoted
 	var Upvoted = false;
