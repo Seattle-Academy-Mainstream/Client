@@ -3,33 +3,34 @@ var socket;
 var Connected = false;
 var Posts = {};
 
-function InitializeServer()
+//once the document is ready
+$(document).ready(function()
 {
-	//once the document is ready
-	$(document).ready(function()
+	//establish the socket commection
+	socket = io.connect('http://ssh.strugee.net:10000');
+
+	//once the connection is functional
+	socket.on('connect', function()
 	{
-		//establish the socket commection
-		socket = io.connect('http://ssh.strugee.net:10000');
+		Connected = true;
 
-		//once the connection is functional
-		socket.on('connect', function()
+		console.log("Send the Request for the Data.");
+
+		//send a request for the whole buffer if the page is the main one
+		if(location.pathname.substring(1) == "index.html")
 		{
-			Connected = true;
-
-			console.log("Send the Request for the Data.");
-
-			//send a request for the whole buffer
+			alert("asking for update");
 			socket.emit('update');
-		});
-
-		//when data is recieved from the server
-		socket.on('update', function (data)
-		{
-			Posts = JSON.parse(data);
-			FullRender();
-		});
+		}
 	});
-}
+
+	//when data is recieved from the server
+	socket.on('update', function (data)
+	{
+		Posts = JSON.parse(data);
+		FullRender();
+	});
+});
 
 //makes unique ID
 function GenerateID(Length)
