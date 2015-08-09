@@ -17,7 +17,7 @@ $(document).ready(function()
 		console.log("Send the Request for the Data.");
 
 		//send a request for the whole buffer if the page is the main one
-		if(location.pathname.substring(1) == "/ResponsiveApp/index.html")
+		if(location.pathname == "/ResponsiveApp/index.html")
 		{
 			alert("asking for update");
 			socket.emit('update');
