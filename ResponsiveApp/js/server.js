@@ -31,6 +31,12 @@ $(document).ready(function()
 		Posts = JSON.parse(data);
 		FullRender();
 	});
+
+	socket.on('updateupvotes', function (data)
+	{
+		Posts = JSON.parse(data);
+		UpdateUpvotes();
+	});
 });
 
 //makes unique ID
@@ -100,6 +106,16 @@ function HtmlFromObject(InputObject)
 	}
 
 	return NewDiv;
+}
+
+function UpdateUpvotes()
+{
+	for(var i = 0; i < Posts.length; i++)
+	{
+		console.log(Posts[i]["Upvotes"].length);
+		
+		$("#" + Posts[i]["ID"] + " .upvote-number").html(Posts[i]["Upvotes"].length);
+	}
 }
 
 function FullRender()
