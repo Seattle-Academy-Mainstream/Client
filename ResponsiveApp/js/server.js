@@ -84,7 +84,7 @@ function HtmlFromObject(InputObject)
 	
 	//sets up the differences from the template
 	$(NewDiv).find(".text").html(InputObject["Content"]);
-	$(NewDiv).find(".upvote-number").html(InputObject["Upvotes"]);	
+	$(NewDiv).find(".upvote-number").html(InputObject["Upvotes"].length);	
 	$(NewDiv).find(".author-text").html(InputObject["Author"]);
 
 	//if there is an image
