@@ -68,9 +68,15 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat)
 	socket.emit('addpost', JSON.stringify(NewObject));
 }
 
-function Upvote(ID)
+function Upvote(this)
 {
-	socket.emit('upvote', JSON.stringify({"User": Username, "ID": ID}));
+	var Username = "isaaczinda";
+
+	var PostID = $(this).parentsUntil(".post").attr("id");
+
+	console.log(PostID);
+
+	socket.emit('upvote', JSON.stringify({"User": Username, "ID": PostID}));
 }
 
 function HtmlFromObject(InputObject)
@@ -80,7 +86,7 @@ function HtmlFromObject(InputObject)
 	$(NewDiv).attr("id", InputObject["ID"]);
 
 	//sets the new div html
-	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted yesterday</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"ToggleUpvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
+	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted yesterday</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
 	
 	//sets up the differences from the template
 	$(NewDiv).find(".text").html(InputObject["Content"]);
