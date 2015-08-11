@@ -68,11 +68,11 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat)
 	socket.emit('addpost', JSON.stringify(NewObject));
 }
 
-function Upvote(this)
+function Upvote(Object)
 {
 	var Username = "isaaczinda";
 
-	var PostID = $(this).parentsUntil(".post").attr("id");
+	var PostID = $(Object).parentsUntil(".post").attr("id");
 
 	console.log(PostID);
 
