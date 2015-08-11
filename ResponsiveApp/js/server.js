@@ -34,6 +34,7 @@ $(document).ready(function()
 
 	socket.on('updateupvotes', function (data)
 	{
+		console.log("thing");
 		Posts = JSON.parse(data);
 		UpdateUpvotes();
 	});
@@ -110,10 +111,11 @@ function HtmlFromObject(InputObject)
 
 function UpdateUpvotes()
 {
+	console.log("update upvotes");
 	for(var i = 0; i < Posts.length; i++)
 	{
 		console.log(Posts[i]["Upvotes"].length);
-		
+
 		$("#" + Posts[i]["ID"] + " .upvote-number").html(Posts[i]["Upvotes"].length);
 	}
 }
