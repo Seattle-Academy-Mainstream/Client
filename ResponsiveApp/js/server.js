@@ -6,6 +6,7 @@ var Posts = {};
 //once the document is ready
 $(document).ready(function()
 {
+	console.log("Initializing Socket.");
 	//establish the socket commection
 	socket = io.connect('http://ssh.strugee.net:10000');
 
@@ -82,7 +83,7 @@ function HtmlFromObject(InputObject)
 	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted yesterday</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"ToggleUpvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
 	
 	//sets up the differences from the template
-	$(NewDiv).filter(".text").html(InputObject["Content"]);
+	$(NewDiv).find(".text").html(InputObject["Content"]);
 	$(NewDiv).filter(".upvote-number").html(InputObject["Upvotes"]);	
 	$(NewDiv).filter(".author-text").html(InputObject["Author"]);
 
