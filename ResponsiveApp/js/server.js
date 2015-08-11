@@ -72,7 +72,7 @@ function Upvote(Object)
 {
 	var Username = "isaaczinda";
 
-	var PostID = $(Object).parentsUntil(".post").attr("id");
+	var PostID = $(Object).parents(".post").attr("id");
 
 	console.log(PostID);
 
