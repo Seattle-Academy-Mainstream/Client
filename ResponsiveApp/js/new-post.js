@@ -62,7 +62,7 @@ function ImageUploaded()
     var Extension = GetExtension(file.name);
 
     //set the type attribute
-    $("#thepicture").attr("type", FIleType);
+    $("#thepicture").attr("type", FileType);
 
     //store the extension
     $("#thepicture").attr("extension", Extension);
