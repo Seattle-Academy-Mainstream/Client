@@ -19,8 +19,12 @@ function PostPost()
   {
     var Data = picture.guillotine("getData");
     
+    var ImageSource = $("#thepicture").attr("src");
+
+    ImageSource = ImageSource.replace("data:image/" + $("#thepicture").attr("type") + ";base64,", "");
+
     //upload the post with the image
-    NewPostWithImage($("#textarea").val(), Username, $("#thepicture").attr("src"), $("#thepicture").attr("extension"));
+    NewPostWithImage($("#textarea").val(), Username, ImageSource, $("#thepicture").attr("extension"));
   }
   else
   {
@@ -48,13 +52,17 @@ function ImageUploaded()
 
   reader.onload = function() 
   {
+    //set the src attribute
     var Data = event.target.result;
     $("#thepicture").attr("src", Data);
 
-
     //set the text to the filename.
+    var FileType = file.type;
     var Filename = file.name;
     var Extension = GetExtension(file.name);
+
+    //set the type attribute
+    $("#thepicture").attr("type", FIleType);
 
     //store the extension
     $("#thepicture").attr("extension", Extension);
