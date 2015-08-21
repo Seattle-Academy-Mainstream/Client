@@ -21,7 +21,7 @@ function PostPost()
     
     var ImageSource = $("#thepicture").attr("src");
 
-    ImageSource = ImageSource.replace("data:image/" + $("#thepicture").attr("type") + ";base64,", "");
+    ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
     //upload the post with the image
     NewPostWithImage($("#textarea").val(), Username, ImageSource, $("#thepicture").attr("extension"));
