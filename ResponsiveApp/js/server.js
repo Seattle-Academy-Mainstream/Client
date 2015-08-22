@@ -61,7 +61,7 @@ function SendImage(Data, Name, CroppingData)
 //creates the new post, attaches an image if the image data is set
 function NewPostWithoutImage(Content, Username)
 {
-	var NewObject = {"Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10)};
+	var NewObject = {"Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
 	socket.emit('addpost', JSON.stringify(NewObject));
 }
 
@@ -71,7 +71,7 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat)
 	var ID = GenerateID(10);
 
 	SendImage(ImageData, ID + "." + ImageFormat, {});
-	var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10)};
+	var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), , "Category": "none"};
 	socket.emit('addpost', JSON.stringify(NewObject));
 }
 

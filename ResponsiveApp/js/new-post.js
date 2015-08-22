@@ -28,7 +28,7 @@ function PostPost()
   }
   else
   {
-    NewPostWithImage($("#textarea").val(), Username);
+    NewPostWithoutImage($("#textarea").val(), Username);
   }
 
   alert("Posted Post.");
