@@ -20,7 +20,6 @@ $(document).ready(function()
 		//send a request for the whole buffer if the page is the main one
 		if(location.pathname == "/ResponsiveApp/index.html")
 		{
-			alert("asking for update");
 			socket.emit('update');
 		}
 	});

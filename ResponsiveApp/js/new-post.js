@@ -31,8 +31,6 @@ function PostPost()
     NewPostWithoutImage($("#textarea").html(), Username);
   }
 
-  alert("Posted Post.");
-
   window.location = "index.html";
 }
 
