@@ -24,11 +24,11 @@ function PostPost()
     ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
     //upload the post with the image
-    NewPostWithImage($("#textarea").val(), Username, ImageSource, $("#thepicture").attr("extension"));
+    NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"));
   }
   else
   {
-    NewPostWithoutImage($("#textarea").val(), Username);
+    NewPostWithoutImage($("#textarea").html(), Username);
   }
 
   alert("Posted Post.");
