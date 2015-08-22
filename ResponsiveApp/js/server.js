@@ -103,7 +103,7 @@ function HtmlFromObject(InputObject)
 	//if there is an image
 	if(InputObject["Image"] != null)
 	{
-		$(NewDiv).filter(".post-image").html("<img src = \"http://ssh.strugee.net:10000/Images/" + InputObject["Image"] + "\"/>");
+		$(NewDiv).find(".post-image").html("<img src = \"http://ssh.strugee.net:10000/Images/" + InputObject["Image"] + "\"/>");
 	}
 
 	return NewDiv;
