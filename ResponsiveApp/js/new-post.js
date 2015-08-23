@@ -18,6 +18,8 @@ function PostPost()
   if($("#thepicture").attr("src") != "")
   {
     var Data = picture.guillotine("getData");
+
+    alert(JSON.stringify(Data));
     
     var ImageSource = $("#thepicture").attr("src");
 
@@ -116,12 +118,6 @@ $(document).ready(function()
     });
     $('#zoom-out-button').click(function(){
       picture.guillotine('zoomOut');
-    });
-    $('#rotate-right-button').click(function(){
-      picture.guillotine('rotateLeft');
-    });
-    $('#rotate-left-button').click(function(){
-      picture.guillotine('rotateRight');
     });
   });
 });
