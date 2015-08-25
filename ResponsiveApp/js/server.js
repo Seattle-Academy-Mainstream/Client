@@ -54,10 +54,7 @@ function GenerateID(Length)
 //send an image with the image name and the data
 function SendImage(Data, Name, CroppingData)
 {
-	socket.emit('image', "{\"Data\": \"" + Data + "\", \"Name\": \"" + Name + "\", \"CroppingData\": " + JSON.stringify(CroppingData) + "}", function()
-		{
-			alert("iamge sent");
-		});
+	socket.emit('image', "{\"Data\": \"" + Data + "\", \"Name\": \"" + Name + "\", \"CroppingData\": " + JSON.stringify(CroppingData) + "}");
 }
 
 //creates the new post, attaches an image if the image data is set
