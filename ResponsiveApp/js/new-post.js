@@ -31,7 +31,10 @@ function PostPost()
   }
   else
   {
-    NewPostWithoutImage($("#textarea").html(), Username);
+    NewPostWithoutImage($("#textarea").html(), Username, function()
+    {
+      window.location = "index.html";
+    });
   }
 }
 

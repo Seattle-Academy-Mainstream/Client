@@ -54,17 +54,20 @@ function GenerateID(Length)
 //send an image with the image name and the data
 function SendImage(Data, Name, CroppingData, Callback)
 {
-	socket.emit('image', "{\"Data\": \"" + Data + "\", \"Name\": \"" + Name + "\", \"CroppingData\": " + JSON.stringify(CroppingData) + "}", function(data)
+	socket.emit('image', "{\"Data\": \"" + Data + "\", \"Name\": \"" + Name + "\", \"CroppingData\": " + JSON.stringify(CroppingData) + "}", function()
 	{
 		Callback();
 	});
 }
 
 //creates the new post, attaches an image if the image data is set
-function NewPostWithoutImage(Content, Username)
+function NewPostWithoutImage(Content, Username, Callback)
 {
 	var NewObject = {"Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
-	socket.emit('addpost', JSON.stringify(NewObject));
+	socket.emit('addpost', JSON.stringify(NewObject), function()
+	{
+		Callback();
+	});
 }
 
 //automatically uploads the image
