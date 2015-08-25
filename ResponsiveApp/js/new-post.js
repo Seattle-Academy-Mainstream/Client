@@ -33,7 +33,7 @@ function PostPost()
     NewPostWithoutImage($("#textarea").html(), Username);
   }
 
-  window.location = "index.html";
+  //window.location = "index.html";
 }
 
 function GetExtension(filename)
