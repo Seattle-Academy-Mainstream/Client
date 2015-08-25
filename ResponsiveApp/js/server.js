@@ -65,11 +65,11 @@ function NewPostWithoutImage(Content, Username)
 }
 
 //automatically uploads the image
-function NewPostWithImage(Content, Username, ImageData, ImageFormat)
+function NewPostWithImage(Content, Username, ImageData, ImageFormat, ImageCroppingData)
 {
 	var ID = GenerateID(10);
 
-	SendImage(ImageData, ID + "." + ImageFormat, {});
+	SendImage(ImageData, ID + "." + ImageFormat, ImageCroppingData);
 	var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
 	socket.emit('addpost', JSON.stringify(NewObject));
 

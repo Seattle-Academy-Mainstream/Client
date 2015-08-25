@@ -24,7 +24,7 @@ function PostPost()
     ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
     //upload the post with the image
-    NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"));
+    NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"), Data);
   }
   else
   {
