@@ -23,8 +23,6 @@ function PostPost()
 
     ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
-    print(ImageSource.length);
-
     //upload the post with the image
     NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"), Data);
   }
@@ -33,7 +31,7 @@ function PostPost()
     NewPostWithoutImage($("#textarea").html(), Username);
   }
 
-  //window.location = "index.html";
+  window.location = "index.html";
 }
 
 function GetExtension(filename)
