@@ -18,8 +18,6 @@ function PostPost()
   if($("#thepicture").attr("src") != "")
   {
     var Data = picture.guillotine("getData");
-
-    alert(JSON.stringify(Data));
     
     var ImageSource = $("#thepicture").attr("src");
 

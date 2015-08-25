@@ -72,6 +72,8 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat)
 	SendImage(ImageData, ID + "." + ImageFormat, {});
 	var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
 	socket.emit('addpost', JSON.stringify(NewObject));
+
+	alert("sent");
 }
 
 function Upvote(Object)
