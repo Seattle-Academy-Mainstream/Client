@@ -23,11 +23,11 @@ $(document).ready(function()
 
 	if(Username == undefined)
 	{
-		$("#username").html("guest");
+		$("#logged-in-username").html("guest");
 	}
 	else
 	{
-		$("#username").html(Username);
+		$("#logged-in-username").html(Username);
 	}
 
 	$("#settings-bar").hide(0);
