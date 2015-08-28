@@ -102,6 +102,10 @@ function Upvote(Object)
 			socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}));
 	    }
 	}
+	else
+	{
+		alert("You can't upvote because you aren't logged in.");
+	}
 }
 
 function HtmlFromObject(InputObject)

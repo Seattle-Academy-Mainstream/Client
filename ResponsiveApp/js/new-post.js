@@ -47,6 +47,10 @@ function PostPost()
       }
     }
   }
+  else
+  {
+    alert("You can't post because you aren't logged in.");
+  }
 }
 
 function GetExtension(filename)
