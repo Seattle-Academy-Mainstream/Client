@@ -18,4 +18,6 @@ function ToggleUpvote(Object)
 $(document).ready(function()
 {
 	$("#settings-bar").hide(0);
+
+	console.log($.cookie("username"));
 });
