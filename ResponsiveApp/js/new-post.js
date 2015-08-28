@@ -12,29 +12,36 @@ function BindUpvote(ID)
 
 function PostPost()
 {
-  var Username = "isaaczinda";
+  var Username = Cookies.get("username");
 
-  //if a picture is attached, get the picture data
-  if($("#thepicture").attr("src") != "")
+  if(Username.indexOf("@seattleacademy.org") == -1)
   {
-    var Data = picture.guillotine("getData");
-    
-    var ImageSource = $("#thepicture").attr("src");
-
-    ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
-
-    //upload the post with the image
-    NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"), Data, function()
-    {
-      window.location = "index.html";
-    });
+    alert("You can't post because you aren't logged in with a valid Seattle Academy email address.");
   }
   else
   {
-    NewPostWithoutImage($("#textarea").html(), Username, function()
+    //if a picture is attached, get the picture data
+    if($("#thepicture").attr("src") != "")
     {
-      window.location = "index.html";
-    });
+      var Data = picture.guillotine("getData");
+      
+      var ImageSource = $("#thepicture").attr("src");
+
+      ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
+
+      //upload the post with the image
+      NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"), Data, function()
+      {
+        window.location = "index.html";
+      });
+    }
+    else
+    {
+      NewPostWithoutImage($("#textarea").html(), Username, function()
+      {
+        window.location = "index.html";
+      });
+    }
   }
 }
 
