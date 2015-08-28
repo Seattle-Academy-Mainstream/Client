@@ -1,4 +1,15 @@
-function onSignIn(googleUser) {
+function SignoutUser(Callback)
+{
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () 
+  {
+    console.log('User signed out.');
+    Callback();
+  });
+}
+
+function onSignIn(googleUser) 
+{
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
@@ -9,5 +20,8 @@ function onSignIn(googleUser) {
 
   Cookies.set("token", id_token, {expires: 100});
 
-  window.location = "index.html";
+  SignoutUser(function()
+  {
+    window.location = "index.html";
+  });
 }
