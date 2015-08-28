@@ -88,13 +88,13 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat, ImageCroppi
 
 function Upvote(Object)
 {
-	var Username = "isaaczinda";
+	var Token = Cookies.get("token");
 
 	var PostID = $(Object).parents(".post").attr("id");
 
 	console.log(PostID);
 
-	socket.emit('upvote', JSON.stringify({"User": Username, "ID": PostID}));
+	socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}));
 }
 
 function HtmlFromObject(InputObject)

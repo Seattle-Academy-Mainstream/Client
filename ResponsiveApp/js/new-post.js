@@ -13,6 +13,7 @@ function BindUpvote(ID)
 function PostPost()
 {
   var Username = Cookies.get("username");
+  var Token = Cookies.get("token");
 
   if(Username.indexOf("@seattleacademy.org") == -1)
   {
@@ -30,14 +31,14 @@ function PostPost()
       ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
       //upload the post with the image
-      NewPostWithImage($("#textarea").html(), Username, ImageSource, $("#thepicture").attr("extension"), Data, function()
+      NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
       {
         window.location = "index.html";
       });
     }
     else
     {
-      NewPostWithoutImage($("#textarea").html(), Username, function()
+      NewPostWithoutImage($("#textarea").html(), Token, function()
       {
         window.location = "index.html";
       });
