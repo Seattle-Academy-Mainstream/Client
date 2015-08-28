@@ -18,4 +18,12 @@ function ToggleUpvote(Object)
 $(document).ready(function()
 {
 	$("#settings-bar").hide(0);
+
+	$('#logout').click(function()
+	{
+		Cookies.remove("username");
+		Cookies.remove("token");
+
+		window.location = "sign-in.html";
+	});
 });
