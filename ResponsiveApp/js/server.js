@@ -89,6 +89,7 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat, ImageCroppi
 function Upvote(Object)
 {
 	var Token = Cookies.get("token");
+	var Username = Cookies.get("username");
 
 	if(Username != undefined)
 	{

@@ -17,6 +17,19 @@ function ToggleUpvote(Object)
 
 $(document).ready(function()
 {
+	//on each page load, set the username logged in text
+	var Username = Cookies.get("username");
+	
+
+	if(Username == undefined)
+	{
+		$("#username").html("guest");
+	}
+	else
+	{
+		$("#username").html(Username);
+	}
+
 	$("#settings-bar").hide(0);
 
 	$('#logout').click(function()
