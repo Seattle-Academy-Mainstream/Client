@@ -1,6 +1,10 @@
 <html>
   <head>
     <title>Mainstream</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <!-- Include the API client and Google+ client. -->
     <script src = "js/jquery.js"></script>
     <script src = "js/js.cookie.js"></script>
@@ -14,17 +18,15 @@
     <link rel="stylesheet/less" type="test/css" href="css/default.less"/> 
     <script src="js/less.js" type="text/javascript"></script>
   </head>
-
   <body>
-    <div calss = "login-container">
-      <div class = "title">Mainstream</div>
-      <div class = "subtitle">Welcome to Mainstream. Popular posts from this site will be displayed on the SAAS stream building waterfall projector. You can only post if you log in with your SAAS email account here:
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <div id = "top-bar">
+        <div>Mainstream</div>
+      </div>
+      <div id = "new-post-container">
+        <div class = "subtitle">Welcome to Mainstream. Popular posts from this site will be displayed on the SAAS stream building waterfall projector. You can only post if you log in with your SAAS email account here:
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-      If you are from outside the SAAS community but still want to explore the site, you can <a href = "index.html">login as a guest</a>.</div>
-    </div>
-
-
-
+        If you are from outside the SAAS community but still want to explore the site, you can <a href = "index.html">login as a guest</a>.</div>
+      </div>
   </body>
 </html>
