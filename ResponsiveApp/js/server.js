@@ -90,11 +90,18 @@ function Upvote(Object)
 {
 	var Token = Cookies.get("token");
 
-	var PostID = $(Object).parents(".post").attr("id");
-
-	console.log(PostID);
-
-	socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}));
+	if(Username != undefined)
+	{
+	    if(Username.indexOf("@seattleacademy.org") == -1)
+	    {
+	      alert("You can't upvote because you aren't logged in with a valid Seattle Academy email address.");
+	    }
+	    else
+	    {
+	    	var PostID = $(Object).parents(".post").attr("id");
+			socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}));
+	    }
+	}
 }
 
 function HtmlFromObject(InputObject)
