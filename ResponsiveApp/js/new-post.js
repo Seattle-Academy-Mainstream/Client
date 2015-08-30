@@ -15,7 +15,7 @@ function PostPost()
   var Username = Cookies.get("username");
   var Token = Cookies.get("token");
 
-  if(Username != undefined)
+  if(Username != undefined || Token != undefined)
   {
     if(Username.indexOf("@seattleacademy.org") == -1)
     {
@@ -49,6 +49,9 @@ function PostPost()
   }
   else
   {
+    Cookies.remove("username");
+    Cookies.remove("token");
+
     alert("You can't post because you aren't logged in.");
   }
 }
