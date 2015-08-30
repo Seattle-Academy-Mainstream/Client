@@ -19,7 +19,6 @@ $(document).ready(function()
 {
 	//on each page load, set the username logged in text
 	var Username = Cookies.get("username");
-	
 
 	if(Username == undefined)
 	{

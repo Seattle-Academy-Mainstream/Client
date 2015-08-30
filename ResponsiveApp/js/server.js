@@ -22,6 +22,11 @@ $(document).ready(function()
 		{
 			socket.emit('update');
 		}
+
+		$("#delete-all-button").click(function()
+		{
+			socket.emit('deleteall');	
+		});
 	});
 
 	//when data is recieved from the server
