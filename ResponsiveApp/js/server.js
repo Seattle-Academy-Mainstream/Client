@@ -28,6 +28,7 @@ $(document).ready(function()
 	socket.on('update', function (data)
 	{
 		Posts = JSON.parse(data);
+		console.log(Posts);
 		FullRender();
 	});
 
