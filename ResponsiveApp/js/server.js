@@ -185,7 +185,7 @@ function HtmlFromObject(InputObject)
 	}
 	else
 	{
-		FinalDateString = Months[PostMonth] + " " + PostDay;
+		FinalDateString = "on " + Months[PostMonth] + ", " + PostDay;
 	}
 
 	//sets the new div html
