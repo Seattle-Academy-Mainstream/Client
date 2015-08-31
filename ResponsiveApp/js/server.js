@@ -145,11 +145,13 @@ function HtmlFromObject(InputObject)
 	$(NewDiv).addClass("post");
 	$(NewDiv).attr("id", InputObject["ID"]);
 
+	var FinalDateString = "";
+
 	//gets the date
 	var currentdate = new Date(); 
 	var Month = currentdate.getMonth() + 1;
-	var Day = currentdate.getDay();
-	var Year = currentdate.getYear();
+	var Day = currentdate.getDate();
+	var Year = currentdate.getFullYear();
 
 	//calculates when the post was posted, and converts it to text
 	var TimeArray = InputObject["Timestamp"].split("-")
@@ -158,12 +160,17 @@ function HtmlFromObject(InputObject)
 	var PostMonth = parseInt(TimeArray[1]);
 	var PostDay = parseInt(TimeArray[2]);
 
-	console.log(PostYear);
-	console.log(PostMonth);
-	console.log(PostDay);
-	
+	if(PostYear == Year && PostDay == Day && PostMonth == Month)
+	{
+		FinalDateString = "today";
+	}
+	else
+	{
+		FinalDateString = PostMonth + ", " + PostDay;
+	}
+
 	//sets the new div html
-	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted yesterday</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
+	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted " + FinalDateString + "</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
 	
 	//sets up the differences from the template
 	$(NewDiv).find(".text").html(InputObject["Content"]);
