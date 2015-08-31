@@ -95,8 +95,16 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat, ImageCroppi
 		var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
 		socket.emit('addpost', JSON.stringify(NewObject), function()
 		{
-			alert("sent");
-			Callback();
+			if(data == "NoToken")
+			{
+				alert("Google has logged you out. Please login again.");
+				window.location = "sign-in.html";
+			}
+			else
+			{
+				//if nothing else has happened, normal callback
+				Callback();
+			}
 		});
 	});
 }
