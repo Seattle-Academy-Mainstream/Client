@@ -3,20 +3,20 @@ var socket;
 var Connected = false;
 var Posts = {};
 
+// used for the date conversion
 var Months = [];
- Months[1] = L('january');
- Months[2] = L('february');
- Months[3] = L('march');
- Months[4] = L('april');
- Months[5] = L('may');
- Months[6] = L('june');
- Months[7] = L('july');
- Months[8] = L('august');
- Months[9] = L('september');
- Months[10] = L('october');
- Months[11] = L('november');
- Months[12] = L('december');
-};
+Months[1] = 'january';
+Months[2] = 'february';
+Months[3] = 'march';
+Months[4] = 'april';
+Months[5] = 'may';
+Months[6] = 'june';
+Months[7] = 'july';
+Months[8] = 'august';
+Months[9] = 'september';
+Months[10] = 'october';
+Months[11] = 'november';
+Months[12] = 'december';
 
 //once the document is ready
 $(document).ready(function()
