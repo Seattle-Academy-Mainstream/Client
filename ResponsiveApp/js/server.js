@@ -70,9 +70,18 @@ function SendImage(Data, Name, CroppingData, Callback)
 function NewPostWithoutImage(Content, Username, Callback)
 {
 	var NewObject = {"Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
-	socket.emit('addpost', JSON.stringify(NewObject), function()
+	socket.emit('addpost', JSON.stringify(NewObject), function(data)
 	{
-		Callback();
+		if(data == "NoToken")
+		{
+			alert("Google has logged you out. Please login again.");
+			window.location = "sign-in.html";
+		}
+		else
+		{
+			//if nothing else has happened, normal callback
+			Callback();
+		}
 	});
 }
 

@@ -32,18 +32,33 @@ function PostPost()
 
         ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
 
-        //upload the post with the image
-        NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
+
+        if($("#textarea").html().length <= 200)
         {
-          window.location = "index.html";
-        });
+          //upload the post with the image
+          NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
+          {
+            window.location = "index.html";
+          });
+        }
+        else
+        {
+          alert("Your post cannot be longer than 200 characters.");
+        }
       }
       else
       {
-        NewPostWithoutImage($("#textarea").html(), Token, function()
+        if($("#textarea").html().length <= 200)
         {
-          window.location = "index.html";
-        });
+          NewPostWithoutImage($("#textarea").html(), Token, function()
+          {
+            window.location = "index.html";
+          });
+        }
+        else
+        {
+          alert("Your post cannot be longer than 200 characters.");
+        }
       }
     }
   }
