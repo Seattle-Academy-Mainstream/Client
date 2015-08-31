@@ -74,7 +74,7 @@ function NewPostWithoutImage(Content, Username, Callback)
 	{
 		if(data == "NoToken")
 		{
-			alert("Google has logged you out. Please login again.");
+			alert("Google has logged you out. Please login again to post.");
 			window.location = "sign-in.html";
 		}
 		else
@@ -93,11 +93,11 @@ function NewPostWithImage(Content, Username, ImageData, ImageFormat, ImageCroppi
 	SendImage(ImageData, ID + "." + ImageFormat, ImageCroppingData, function()
 	{
 		var NewObject = {"Image": ID + "." + ImageFormat, "Content": Content, "Upvotes": [], "Author": Username, "ID": GenerateID(10), "Category": "none"};
-		socket.emit('addpost', JSON.stringify(NewObject), function()
+		socket.emit('addpost', JSON.stringify(NewObject), function(data)
 		{
 			if(data == "NoToken")
 			{
-				alert("Google has logged you out. Please login again.");
+				alert("Google has logged you out. Please login again to post.");
 				window.location = "sign-in.html";
 			}
 			else
@@ -123,7 +123,14 @@ function Upvote(Object)
 	    else
 	    {
 	    	var PostID = $(Object).parents(".post").attr("id");
-			socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}));
+			socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}), function(data)
+			{
+				if(data == "NoToken")
+				{
+					alert("Google has logged you out. Please login again to upvote.");
+					window.location = "sign-in.html";
+				}
+			});
 	    }
 	}
 	else
