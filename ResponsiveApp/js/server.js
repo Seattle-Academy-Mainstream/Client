@@ -3,6 +3,21 @@ var socket;
 var Connected = false;
 var Posts = {};
 
+var Months = [];
+ Months[1] = L('january');
+ Months[2] = L('february');
+ Months[3] = L('march');
+ Months[4] = L('april');
+ Months[5] = L('may');
+ Months[6] = L('june');
+ Months[7] = L('july');
+ Months[8] = L('august');
+ Months[9] = L('september');
+ Months[10] = L('october');
+ Months[11] = L('november');
+ Months[12] = L('december');
+};
+
 //once the document is ready
 $(document).ready(function()
 {
@@ -164,9 +179,13 @@ function HtmlFromObject(InputObject)
 	{
 		FinalDateString = "today";
 	}
+	else if(PostYear == Year && PostDay == Day - 1 && PostMonth == Month)
+	{
+		FinalDateString = "yesterday";
+	}
 	else
 	{
-		FinalDateString = PostMonth + ", " + PostDay;
+		FinalDateString = Months[PostMonth] + " " + PostDay;
 	}
 
 	//sets the new div html
