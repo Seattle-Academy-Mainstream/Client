@@ -145,6 +145,23 @@ function HtmlFromObject(InputObject)
 	$(NewDiv).addClass("post");
 	$(NewDiv).attr("id", InputObject["ID"]);
 
+	//gets the date
+	var currentdate = new Date(); 
+	var Month = currentdate.getMonth() + 1;
+	var Day = currentdate.getDay();
+	var Year = currentdate.getYear();
+
+	//calculates when the post was posted, and converts it to text
+	var TimeArray = InputObject["Timestamp"].split("-")
+
+	var PostYear = parseInt(TimeArray[0]);
+	var PostMonth = parseInt(TimeArray[1]);
+	var PostDay = parseInt(TimeArray[2]);
+
+	console.log(PostYear);
+	console.log(PostMonth);
+	console.log(PostDay);
+	
 	//sets the new div html
 	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted yesterday</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
 	
