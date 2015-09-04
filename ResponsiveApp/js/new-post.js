@@ -65,7 +65,7 @@ function PostPost()
         if($("#textarea").html().length <= 200)
         {
           ShowLoadingBar();
-          
+
           NewPostWithoutImage($("#textarea").html(), Token, function()
           {
             window.location = "index.html";
@@ -140,6 +140,9 @@ function TextboxFocus(Item)
 
 $(document).ready(function()
 {
+  //hide the loading bar
+  HideLoadingBar();
+
   //hide the image bar
   $("#image-crop").hide(0);
 
