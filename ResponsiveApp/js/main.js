@@ -20,9 +20,10 @@ $(document).ready(function()
 	//on each page load, set the username logged in text
 	var Username = Cookies.get("username");
 
+	//redirect to the home page
 	if(Username == undefined)
 	{
-		$("#logged-in-username").html("guest");
+		window.location = "sign-in.html";
 	}
 	else
 	{
