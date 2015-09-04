@@ -174,6 +174,10 @@ function HtmlFromObject(InputObject)
 	var PostYear = parseInt(TimeArray[0]);
 	var PostMonth = parseInt(TimeArray[1]);
 	var PostDay = parseInt(TimeArray[2]);
+	var PostMilliseconds = parseInt(TimeArray[3]);
+
+	// set the postdate attribute
+	$(NewDiv).attr("postdate", PostMilliseconds); 
 
 	if(PostYear == Year && PostDay == Day && PostMonth == Month)
 	{
@@ -218,6 +222,7 @@ function UpdateUpvotes()
 
 function FullRender()
 {
+	//appends everything to the #content
 	for(var i = 0; i < Posts.length; i++)
 	{
 		var NewDiv = HtmlFromObject(Posts[i]);
@@ -225,4 +230,11 @@ function FullRender()
 		//adds the new object
 		$("#content").append(NewDiv);
 	}
+
+	//this sorts the posts by the postdate attribute
+	var $content = $('#content');
+	$content.find('.post').sort(function (a, b) 
+	{
+	    return +a.dataset.postdate - +b.dataset.postdate;
+	}).appendTo( $content );
 }
