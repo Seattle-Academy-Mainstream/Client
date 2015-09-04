@@ -10,6 +10,18 @@ function BindUpvote(ID)
   });
 }
 
+function ShowLoadingBar()
+{
+  $("#loading").show(0);
+  $("#background").show(0);
+}
+
+function HideLoadingBar()
+{
+  $("#loading").hide(0);
+  $("#background").hide(0); 
+}
+
 function PostPost()
 {
   var Username = Cookies.get("username");
@@ -35,6 +47,8 @@ function PostPost()
 
         if($("#textarea").html().length <= 200)
         {
+          ShowLoadingBar();
+
           //upload the post with the image
           NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
           {
@@ -50,6 +64,8 @@ function PostPost()
       {
         if($("#textarea").html().length <= 200)
         {
+          ShowLoadingBar();
+          
           NewPostWithoutImage($("#textarea").html(), Token, function()
           {
             window.location = "index.html";
