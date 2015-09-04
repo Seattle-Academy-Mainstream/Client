@@ -232,7 +232,9 @@ function FullRender()
 	}
 
 	//this sorts the posts by the postdate attribute
-	$('#content .post').sort(function(a,b) {
-	     return a.dataset.postdate > b.dataset.postdate;
+	//the newest posts should be at the top
+	$('#content .post').sort(function(a, b) 
+	{
+	     return a.dataset.postdate < b.dataset.postdate;
 	}).appendTo('#content');
 }
