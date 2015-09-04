@@ -29,7 +29,7 @@
     border-right-color: transparent;
     border-radius: 50%;
     box-shadow: 0 0 25px 2px #eee;
-    z-index: 11;
+    z-index: 31;
     background-color: transparent;
 }
 
@@ -377,6 +377,17 @@ input[type=file]
 // Posts
 // *****
 
+hr 
+{
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px black;
+}
+hr
+{  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}
+
 .post-image img
 {
 	padding-top: .5em;
@@ -385,7 +396,7 @@ input[type=file]
 
 .post-image
 {
-	width: 20%;
+	width: 40%;
 }
 
 #content .post
