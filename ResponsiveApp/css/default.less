@@ -377,15 +377,11 @@ input[type=file]
 // Posts
 // *****
 
-hr 
-{
+hr {
     border: 0;
-    height: 0; /* Firefox... */
-    box-shadow: 0 0 10px 1px black;
-}
-hr
-{  /* Not really supposed to work, but does */
-    content: "\00a0";  /* Prevent margin collapse */
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 .post-image img
