@@ -177,7 +177,7 @@ function HtmlFromObject(InputObject)
 	var PostMilliseconds = parseInt(TimeArray[3]);
 
 	// set the postdate attribute
-	$(NewDiv).attr("postdate", PostMilliseconds); 
+	$(NewDiv).attr("data-postdate", PostMilliseconds);
 
 	if(PostYear == Year && PostDay == Day && PostMonth == Month)
 	{
@@ -232,9 +232,7 @@ function FullRender()
 	}
 
 	//this sorts the posts by the postdate attribute
-	var $content = $('#content');
-	$content.find('.post').sort(function (a, b) 
-	{
-	    return +a.dataset.postdate - +b.dataset.postdate;
-	}).appendTo( $content );
+	$('#content .post').sort(function(a,b) {
+	     return a.dataset.postdate > b.dataset.postdate;
+	}).appendTo('#content');
 }
