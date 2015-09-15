@@ -23,7 +23,7 @@ $(document).ready(function()
 	//redirect to the home page
 	if(Username == undefined)
 	{
-		window.location = "sign-in.html";
+		$("#logged-in-username").html("Guest");
 	}
 	else
 	{
