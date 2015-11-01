@@ -129,8 +129,8 @@ function NewPostWithoutImage(Content, Username, Callback)
 	{
 		if(data == "NoToken")
 		{
-			alert("Google has logged you out. Please login again to post.");
-			window.location = "sign-in.html";
+			alert("Google has logged you out. Login again to post.");
+			window.location = "index.html";
 		}
 		else
 		{
@@ -171,22 +171,15 @@ function Upvote(Object)
 
 	if(Username != undefined)
 	{
-	    if(Username.indexOf("@seattleacademy.org") == -1)
-	    {
-	      alert("You can't upvote because you aren't logged in with a valid Seattle Academy email address.");
-	    }
-	    else
-	    {
-	    	var PostID = $(Object).parents(".post").attr("id");
-			socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}), function(data)
+    	var PostID = $(Object).parents(".post").attr("id");
+		socket.emit('upvote', JSON.stringify({"User": Token, "ID": PostID}), function(data)
+		{
+			if(data == "NoToken")
 			{
-				if(data == "NoToken")
-				{
-					alert("Google has logged you out. Please login again to upvote.");
-					window.location = "sign-in.html";
-				}
-			});
-	    }
+				alert("You are no longer logged in. Please login again to upvote.");
+			}
+		});
+
 	}
 	else
 	{
