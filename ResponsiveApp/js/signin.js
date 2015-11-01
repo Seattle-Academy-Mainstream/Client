@@ -9,15 +9,21 @@ function AttachSignin(element)
       var Token = googleUser.getAuthResponse().id_token;
       var Email = googleUser.getBasicProfile().getEmail();
 
-      Cookies.set("email", Email, {expires: 100});
-      Cookies.set("token", Token, {expires: 100});
+      
 
-      if(Email.indexOf("@seattleacademy.org" == -1))
+      if(Email.indexOf("seattleacademy.org") == -1)
       {
         SignoutUser(function()
         {
           alert("Not a Seattle Academy email address. Please Login again.");
         });
+      }
+      else
+      {
+        alert("logged in successfully");
+        
+        Cookies.set("email", Email, {expires: 100});
+        Cookies.set("token", Token, {expires: 100});
       }
     }, 
     function(error) 

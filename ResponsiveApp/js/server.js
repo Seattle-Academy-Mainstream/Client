@@ -62,11 +62,13 @@ $(document).ready(function()
 		{
 			if(LoggedIn)
 			{
-
+				$("logged-in").show(0)
+				$("logged-out").hide(0)
 			}
 			else
 			{
-				
+				$("logged-in").hide(0)
+				$("logged-out").show(0)
 			}
 		});
 
