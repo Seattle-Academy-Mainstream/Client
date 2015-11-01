@@ -57,6 +57,6 @@ function Logout()
   Cookies.remove("username");
   SignoutUser(function()
   {
-    location.reload();
+    UpdateLoginLogout();
   });
 }

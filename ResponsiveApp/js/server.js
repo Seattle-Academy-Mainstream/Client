@@ -43,6 +43,24 @@ function IsLoggedIn(Callback)
 	}
 }
 
+function UpdateLoginLogout()
+{
+	IsLoggedIn(function(LoggedIn)
+	{
+		if(LoggedIn)
+		{
+
+			$(".logged-in").show(500);
+			$(".logged-out").hide(500);
+		}
+		else
+		{
+			$(".logged-in").hide(500);
+			$(".logged-out").show(500);
+		}
+	});
+}
+
 //once the document is ready
 $(document).ready(function()
 {
@@ -61,20 +79,7 @@ $(document).ready(function()
 
 		console.log("Send the Request for the Data.");
 
-		IsLoggedIn(function(LoggedIn)
-		{
-			if(LoggedIn)
-			{
-
-				$(".logged-in").show(500);
-				$(".logged-out").hide(500);
-			}
-			else
-			{
-				$(".logged-in").hide(500);
-				$(".logged-out").show(500);
-			}
-		});
+		UpdateLoginLogout();
 
 		//send a request for the whole buffer if the page is the main one
 		if(location.pathname == "/ResponsiveApp/index.html")
