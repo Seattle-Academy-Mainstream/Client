@@ -18,7 +18,7 @@ function AttachSignin(element)
       }
       else
       {
-        alert("logged in successfully");
+        UpdateLoginLogout();
 
         Cookies.set("username", Email, {expires: 100});
         Cookies.set("token", Token, {expires: 100});
@@ -52,7 +52,6 @@ function SignoutUser(Callback)
 
 function Logout()
 {
-  alert("logg out clicked");
   Cookies.remove("token");
   Cookies.remove("username");
   SignoutUser(function()
