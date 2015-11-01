@@ -49,3 +49,11 @@ function SignoutUser(Callback)
     Callback();
   });
 }
+
+$("#log-out").click(function()
+{
+  SignoutUser(function()
+    {
+      location.reload();
+    });
+});
