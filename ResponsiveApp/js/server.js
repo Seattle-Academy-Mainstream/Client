@@ -18,13 +18,13 @@ Months[10] = 'october';
 Months[11] = 'november';
 Months[12] = 'december';
 
-function IsLoggedIn()
+function IsLoggedIn(Callback)
 {
 	var Token = Cookies.get("token");
 
 	if(Token == undefined)
 	{
-		return false;
+		Callback(false);
 	}
 	else
 	{
@@ -33,11 +33,11 @@ function IsLoggedIn()
 		{
 			if(error == "NoToken")
 			{
-				return false;
+				Callback(false);
 			}
 			else
 			{
-				return true;
+				Callback(true);
 			}
 		});
 	}
@@ -58,7 +58,10 @@ $(document).ready(function()
 
 		console.log("Send the Request for the Data.");
 
-		alert(IsLoggedIn());
+		IsLoggedIn(function(Bool)
+		{
+			alert(Bool);
+		});
 
 		//send a request for the whole buffer if the page is the main one
 		if(location.pathname == "/ResponsiveApp/index.html")
