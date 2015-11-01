@@ -1,0 +1,607 @@
+@color-primary: rgb(81, 106, 204);
+@color-secondary: rgb(100, 106, 150);
+@color-tertiary: rgb(100, 50, 150);
+@color-background: rgb(100, 100, 100);
+
+@primary-text-color: #000000;
+@secondary-text-color: #777777;
+
+// buttons
+@button-margin: .2em;
+@button-height: 2.32em;
+@button-hover-color-change: #111111;
+@button-click-color-change: #111111;
+
+// ***********
+// Loading Bar
+// ***********
+
+#loading
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 5px;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
+    border: 8px solid #337AB7;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 25px 2px #eee;
+    z-index: 31;
+    background-color: transparent;
+}
+
+#loading
+{
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: spin;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes spin
+{
+    from { transform: rotate(0deg);   opacity: 0.5; }
+    50%  { transform: rotate(180deg); opacity: 1.0; }
+    to   { transform: rotate(360deg); opacity: 0.5; }
+}
+
+@keyframes spin
+{
+    from { transform: rotate(0deg);   opacity: 0.5; }
+    50%  { transform: rotate(180deg); opacity: 1.0; }
+    to   { transform: rotate(360deg); opacity: 0.5; }
+}
+
+#background
+{
+    z-index: 30;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);  
+}
+
+// **********
+// Login Menu
+// **********
+
+#log-in-container
+{
+	border-radius: .5em;
+	margin: .5em;
+
+	padding: .2em;
+	padding-bottom: .4em;
+	padding-left: .4em;
+	padding-right: .4em;
+	background-color: @color-secondary;
+}
+
+.title
+{
+	display: inline-block;
+	margin-left: .3em;
+	padding-left: .3em;
+	font-size: 3em;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.subheading
+{
+	margin-left: .3em;
+	display: inline-block;
+	color: #222222;
+	font-size: 2em;
+}
+
+.g-signin2
+{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+.subtitle
+{
+	padding: 1em;
+	font-size: 1.5em;
+}
+
+// *******
+// Buttons
+// *******
+
+.image-control-button, .icon-button, 
+{
+	cursor: pointer;
+}
+
+.icon-button > div
+{
+	margin: .1em;
+	display: inline-block;
+}
+
+/*sets the style for all buttons in the top bar*/
+.icon-button
+{
+	padding-right: .5em;
+	cursor: pointer;
+	background-color: @color-secondary;
+	display: inline-block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+.icon-button:hover
+{
+
+	background-color: @color-secondary - @button-hover-color-change;
+}
+
+.icon-button:active
+{
+
+	background-color: @color-secondary - @button-hover-color-change - @button-click-color-change;
+}
+
+#new-post
+{
+	@write-button-width: 2.84em;
+	
+	background-image: url("../img/new-post.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#refresh
+{
+	@write-button-width: 2.84em;
+	background-image: url("../img/refresh.png");
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#log-in
+{
+	@write-button-width: 2.84em;
+	background-image: url("../img/refresh.png");
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#log-out
+{
+	@write-button-width: 2.84em;
+	background-image: url("../img/refresh.png");
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#finish-post
+{
+	@write-button-width: 2.84em;
+	background-image: url("../img/finish-post.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#attach-image
+{
+	@write-button-width: 2em;
+	background-image: url("../img/attach-image.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#settings
+{
+	@write-button-width: 2.32em;
+	
+	background-image: url("../img/settings.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @write-button-width;
+	height: @button-height;
+}
+
+#back
+{
+	@back-button-width: 2.84em;
+	background-image: url("../img/back.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: @back-button-width;
+	height: @button-height;
+}
+
+#new-post-container .icon-button
+{
+	background-color: @color-tertiary;
+}
+
+.icon-button .button-text
+{
+	padding-top: .2em;
+	vertical-align: top;
+	font-size: 1.5em;
+}
+
+//hide the input element behind the button
+input[type=file]
+{
+	cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    display: block;
+}
+
+// ******************
+// New Post Container
+// ******************
+
+#textarea 
+{ 
+	background-color: white;
+ 	border-color:#cccccc; 
+ 	border-width:.1em; 
+ 	border-radius:.2em; 
+ 	margin-bottom: .4em;
+ 	margin-top: .2em;
+ 	margin-right: 0em;
+ 	margin-left: 0em;
+ 	font-size: 1.5em;
+
+ 	padding:.2em; 
+ 	border-style:solid;  
+ 	color: @primary-text-color;
+}
+
+#textarea.dim-text
+{
+	color: @secondary-text-color !important;
+}
+
+#new-post-container
+{
+	padding: .2em;
+	padding-bottom: .4em;
+	padding-left: .4em;
+	padding-right: .4em;
+	margin-top: .2em;
+	border-radius: .2em;
+	background-color: @color-secondary;
+}
+
+.image-control-button
+{
+	padding: .4em;
+	background-color: @color-tertiary;
+	display: inline-block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+#image-control-buttons
+{
+	margin-top: .4em;
+}
+
+.image-control-button:hover, #new-post-container .icon-button:hover
+{
+
+	background-color: @color-tertiary - @button-hover-color-change;
+}
+
+.image-control-button:active, #new-post-container .icon-button:active
+{
+
+	background-color: @color-tertiary - @button-hover-color-change - @button-click-color-change;
+}
+
+#image-name
+{
+	font-size: 1.5em;
+	padding-top: .4em;
+	vertical-align: top;
+	display: inline-block;
+}
+
+// ************
+// Settings Bar
+// ************
+
+#username
+{
+	// if the width is less than the width of the text, instead of going onto a new 
+	//line it will stack
+	text-align: right;
+
+	margin: 0em;
+	padding-left: 0px;
+
+	display: block;
+	font-size: 1em;
+	padding-top: .5em;
+	padding-right: .5em;
+	float: right;
+	display: inline;
+}
+
+#settings-bar .button
+{
+	cursor: pointer;
+	padding: .2em;
+	background-color: @color-tertiary;
+	display: block;
+	position: relative;
+	margin: @button-margin;
+	border-radius: .2em;
+}
+
+#settings-bar .button:hover
+{
+
+	background-color: @color-tertiary - @button-hover-color-change;
+}
+
+#settings-bar
+{
+	padding: .2em;
+	border-radius: .2em;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	background-color: @color-secondary;
+}
+
+// *****
+// Posts
+// *****
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, @color-primary, #333, @color-primary);
+}
+
+.post-image img
+{
+	padding-top: .5em;
+	width: 100%;
+}
+
+.post-image
+{
+	width: 40%;
+}
+
+#content .post
+{
+	padding-left: .5em;
+	padding-right: .5em;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
+
+#content
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	display: block;
+	border-radius: .2em;
+	margin-top: .2em;
+	margin-bottom: .2em;
+	background-color: @color-primary;
+}
+
+.upvote-number
+{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.upvote-icon
+{
+	//center it
+	margin-left: auto;
+	margin-right: auto;
+
+	cursor: pointer;
+	background-image: url("../img/upvote.png");
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 1.61em;
+	height: .92em;
+	background-color: transparent;
+}
+
+.upvote-icon:hover
+{
+	background-image: url("../img/upvote-hover.png");
+}
+
+.upvote-icon.active
+{
+	background-image: url("../img/upvote-click.png");
+}
+
+.post .upvotes
+{
+	width: 2em;
+	margin: 0em;
+	padding: 0em;
+}
+.post .text
+{
+	font-size: 1.5em;
+	margin: 0em;
+	padding: 0em;
+}
+
+.post .author
+{
+	font-size: 1em;
+	padding-left: .2em;
+}
+
+// *******
+// Top Bar
+// *******
+
+#logged-in-text
+{
+	margin: .2em;
+	margin-bottom: .4em;
+	padding: 0em;
+}
+
+.right
+{
+	float: right;
+}
+
+.left
+{
+	float: left;
+}
+
+#top-bar
+{
+	overflow: hidden;
+	padding: 0em;
+	margin: 0em;
+	position: relative;
+	width: 100%;
+	background-color: @color-primary;
+}
+
+// *****
+// Other
+// *****
+
+body
+{
+	background-color: @color-background;
+	padding: 0em;
+	margin: 0em;
+}
+
+#image-container
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// *************************
+// Change Styling For Phones
+// *************************
+
+@media (max-width: 499px)
+{
+	.button-text
+	{
+		display: none !important;
+	}
+
+	// body
+	// {
+	// 	font-size: 20pt;
+	// }
+
+	.icon-button
+	{
+		padding-right: 0em;
+	}
+
+	#image-container
+	{
+		width: 100%;
+	}
+
+	#content
+	{
+		padding-left: 0em;
+		padding-right: 0em;
+		margin-left: 0em;
+		margin-right: 0em;
+		width: 100%;
+	}
+
+	.post-image
+	{
+		display: relative;
+		width: 100%;
+	}
+}
+
+@media (min-width: 500px)
+{
+	body
+	{
+		font-size: 12pt;
+	}
+
+	#image-crop
+	{
+		padding-top: .6em;
+		padding-bottom: .5em; 
+		width: 100%;
+		display: block;
+	}
+
+	#new-post-container
+	{
+		padding-top: .5em;
+		padding-right: 1em;
+		padding-left: 1em;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		display: block;
+	}
+}
