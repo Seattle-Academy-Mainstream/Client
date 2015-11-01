@@ -9,8 +9,6 @@ function AttachSignin(element)
       var Token = googleUser.getAuthResponse().id_token;
       var Email = googleUser.getBasicProfile().getEmail();
 
-      
-
       if(Email.indexOf("seattleacademy.org") == -1)
       {
         SignoutUser(function()
@@ -21,7 +19,7 @@ function AttachSignin(element)
       else
       {
         alert("logged in successfully");
-        
+
         Cookies.set("email", Email, {expires: 100});
         Cookies.set("token", Token, {expires: 100});
       }

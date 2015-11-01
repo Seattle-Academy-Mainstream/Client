@@ -50,7 +50,6 @@ $(document).ready(function()
 	//establish the socket commection
 	socket = io.connect('http://strugee.net:10000');
 
-
 	//once the connection is functional
 	socket.on('connect', function()
 	{
