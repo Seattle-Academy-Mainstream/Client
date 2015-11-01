@@ -1,12 +1,16 @@
 var googleUser = {};
 
-function AttachSignin(element) {
-  console.log("attached");
-
+function AttachSignin(element)
+{
   auth2.attachClickHandler(element, {},
+    //when the button is clicked
     function(googleUser) 
     {
-      console.log(googleUser.getBasicProfile().getName());
+      var Token = googleUser.getAuthResponse().id_token;
+      var Email = googleUser.getBasicProfile().getEmail();
+
+      Cookies.set("email", Email, {expires: 100});
+      Cookies.set("token", Token, {expires: 100});
     }, 
     function(error) 
     {
@@ -21,9 +25,17 @@ $(document).ready(function()
     auth2 = gapi.auth2.init({
       client_id: '533332380921-7m8eoi4968kvl1mmr0kk3clco25loemg.apps.googleusercontent.com',
       cookiepolicy: 'single_host_origin',
-      // Request scopes in addition to 'profile' and 'email'
-      //scope: 'additional_scope'
     });
     AttachSignin(document.getElementById('log-in'));
   });
 });
+
+function SignoutUser(Callback)
+{
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () 
+  {
+    console.log('User signed out.');
+    Callback();
+  });
+}

@@ -18,6 +18,31 @@ Months[10] = 'october';
 Months[11] = 'november';
 Months[12] = 'december';
 
+function IsLoggedIn()
+{
+	var Token = Cookies.get("token");
+
+	if(Token == undefined)
+	{
+		return false;
+	}
+	else
+	{
+		//check if someone is logged in
+		socket.emit('checktoken', Token, function(error)
+		{
+			if(error == "NoToken")
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		});
+	}
+}
+
 //once the document is ready
 $(document).ready(function()
 {
@@ -25,12 +50,15 @@ $(document).ready(function()
 	//establish the socket commection
 	socket = io.connect('http://strugee.net:10000');
 
+
 	//once the connection is functional
 	socket.on('connect', function()
 	{
 		Connected = true;
 
 		console.log("Send the Request for the Data.");
+
+		alert(IsLoggedIn());
 
 		//send a request for the whole buffer if the page is the main one
 		if(location.pathname == "/ResponsiveApp/index.html")
