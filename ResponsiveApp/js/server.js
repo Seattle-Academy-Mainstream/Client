@@ -58,9 +58,16 @@ $(document).ready(function()
 
 		console.log("Send the Request for the Data.");
 
-		IsLoggedIn(function(Bool)
+		IsLoggedIn(function(LoggedIn)
 		{
-			alert(Bool);
+			if(LoggedIn)
+			{
+
+			}
+			else
+			{
+				
+			}
 		});
 
 		//send a request for the whole buffer if the page is the main one

@@ -11,6 +11,14 @@ function AttachSignin(element)
 
       Cookies.set("email", Email, {expires: 100});
       Cookies.set("token", Token, {expires: 100});
+
+      if(Email.indexOf("@seattleacademy.org" == -1))
+      {
+        SignoutUser(function()
+        {
+          alert("Not a Seattle Academy email address. Please Login again.");
+        });
+      }
     }, 
     function(error) 
     {
@@ -32,10 +40,8 @@ $(document).ready(function()
 
 function SignoutUser(Callback)
 {
-  var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () 
   {
-    console.log('User signed out.');
     Callback();
   });
 }
