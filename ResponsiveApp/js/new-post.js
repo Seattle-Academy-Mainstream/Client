@@ -29,52 +29,45 @@ function PostPost()
 
   if(Username != undefined || Token != undefined)
   {
-    if(Username.indexOf("@seattleacademy.org") == -1)
+    //if a picture is attached, get the picture data
+    if($("#thepicture").attr("src") != "")
     {
-      alert("You can't post because you aren't logged in with a valid Seattle Academy email address.");
-    }
-    else
-    {
-      //if a picture is attached, get the picture data
-      if($("#thepicture").attr("src") != "")
+      var Data = picture.guillotine("getData");
+      
+      var ImageSource = $("#thepicture").attr("src");
+
+      ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
+
+
+      if($("#textarea").html().length <= 200)
       {
-        var Data = picture.guillotine("getData");
-        
-        var ImageSource = $("#thepicture").attr("src");
+        ShowLoadingBar();
 
-        ImageSource = ImageSource.replace("data:" + $("#thepicture").attr("type") + ";base64,", "");
-
-
-        if($("#textarea").html().length <= 200)
+        //upload the post with the image
+        NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
         {
-          ShowLoadingBar();
-
-          //upload the post with the image
-          NewPostWithImage($("#textarea").html(), Token, ImageSource, $("#thepicture").attr("extension"), Data, function()
-          {
-            window.location = "index.html";
-          });
-        }
-        else
-        {
-          alert("Your post cannot be longer than 200 characters.");
-        }
+          window.location = "index.html";
+        });
       }
       else
       {
-        if($("#textarea").html().length <= 200)
-        {
-          ShowLoadingBar();
+        alert("Your post cannot be longer than 200 characters.");
+      }
+    }
+    else
+    {
+      if($("#textarea").html().length <= 200)
+      {
+        ShowLoadingBar();
 
-          NewPostWithoutImage($("#textarea").html(), Token, function()
-          {
-            window.location = "index.html";
-          });
-        }
-        else
+        NewPostWithoutImage($("#textarea").html(), Token, function()
         {
-          alert("Your post cannot be longer than 200 characters.");
-        }
+          window.location = "index.html";
+        });
+      }
+      else
+      {
+        alert("Your post cannot be longer than 200 characters.");
       }
     }
   }

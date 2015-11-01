@@ -50,13 +50,13 @@ function SignoutUser(Callback)
   });
 }
 
-$("#log-out").click(function()
+function Logout()
 {
   alert("logg out clicked");
   Cookies.remove("token");
   Cookies.remove("username");
   SignoutUser(function()
-    {
-      location.reload();
-    });
-});
+  {
+    location.reload();
+  });
+}

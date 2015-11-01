@@ -46,6 +46,10 @@ function IsLoggedIn(Callback)
 //once the document is ready
 $(document).ready(function()
 {
+	//hide all of the 
+	$(".logged-in").hide(0);
+	$(".logged-out").hide(0);
+
 	console.log("Initializing Socket.");
 	//establish the socket commection
 	socket = io.connect('http://strugee.net:10000');
@@ -62,13 +66,13 @@ $(document).ready(function()
 			if(LoggedIn)
 			{
 
-				$(".logged-in").show(0)
-				$(".logged-out").hide(0)
+				$(".logged-in").show(500);
+				$(".logged-out").hide(500);
 			}
 			else
 			{
-				$(".logged-in").hide(0)
-				$(".logged-out").show(0)
+				$(".logged-in").hide(500);
+				$(".logged-out").show(500);
 			}
 		});
 
