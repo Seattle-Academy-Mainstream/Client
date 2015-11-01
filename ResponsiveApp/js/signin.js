@@ -1,7 +1,7 @@
 var googleUser = {};
 
 function AttachSignin(element) {
-  conosle.log("attached");
+  console.log("attached");
 
   auth2.attachClickHandler(element, {},
     function(googleUser) 
