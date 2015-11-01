@@ -1,23 +1,29 @@
-function SignoutUser(Callback)
-{
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () 
-  {
-    console.log('User signed out.');
-    Callback();
-  });
+var googleUser = {};
+
+function AttachSignin(element) {
+  conosle.log("attached");
+
+  auth2.attachClickHandler(element, {},
+    function(googleUser) 
+    {
+      console.log(googleUser.getBasicProfile().getName());
+    }, 
+    function(error) 
+    {
+      alert(JSON.stringify(error, undefined, 2));
+    });
 }
 
-function onSignIn(googleUser) 
+$(document).ready(function()
 {
-  var profile = googleUser.getBasicProfile();
-  var id_token = googleUser.getAuthResponse().id_token;
-
-  Cookies.set("username", profile.getEmail(), {expires: 100});
-  Cookies.set("token", id_token, {expires: 100});
-
-  SignoutUser(function()
-  {
-    window.location = "index.html";
+  gapi.load('auth2', function(){
+    // Retrieve the singleton for the GoogleAuth library and set up the client.
+    auth2 = gapi.auth2.init({
+      client_id: '533332380921-7m8eoi4968kvl1mmr0kk3clco25loemg.apps.googleusercontent.com',
+      cookiepolicy: 'single_host_origin',
+      // Request scopes in addition to 'profile' and 'email'
+      //scope: 'additional_scope'
+    });
+    AttachSignin(document.getElementById('log-in'));
   });
-}
+});
