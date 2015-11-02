@@ -47,6 +47,8 @@ function UpdateLoginLogout()
 {
 	IsLoggedIn(function(LoggedIn)
 	{
+		console.log("Log Status: " + LoggedIn);
+		
 		if(LoggedIn)
 		{
 
