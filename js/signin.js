@@ -22,10 +22,13 @@ function AttachSignin(element)
       {
         console.log("valid");
 
-        UpdateLoginLogout();
-
+        //set the cookies
         Cookies.set("username", Email, {expires: 100});
         Cookies.set("token", Token, {expires: 100});
+
+        UpdateLoginLogout();
+
+
       }
     }, 
     function(error) 
