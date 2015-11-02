@@ -6,6 +6,8 @@ function AttachSignin(element)
     //when the button is clicked
     function(googleUser) 
     {
+      console.log("click");
+
       var Token = googleUser.getAuthResponse().id_token;
       var Email = googleUser.getBasicProfile().getEmail();
 
@@ -18,6 +20,8 @@ function AttachSignin(element)
       }
       else
       {
+        console.log("valid");
+
         UpdateLoginLogout();
 
         Cookies.set("username", Email, {expires: 100});
