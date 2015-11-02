@@ -82,7 +82,7 @@ $(document).ready(function()
 		UpdateLoginLogout();
 
 		//send a request for the whole buffer if the page is the main one
-		if(location.pathname == "/ResponsiveApp/index.html")
+		if(location.pathname == "/index.html")
 		{
 			socket.emit('update');
 		}
