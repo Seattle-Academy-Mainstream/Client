@@ -45,7 +45,7 @@ $(document).ready(function()
       client_id: '533332380921-7m8eoi4968kvl1mmr0kk3clco25loemg.apps.googleusercontent.com',
       cookiepolicy: 'single_host_origin',
     });
-    AttachSignin(document.getElementById('log-in'));
+    AttachSignin(document.getElementById('log-in-outer'));
   });
 });
 
