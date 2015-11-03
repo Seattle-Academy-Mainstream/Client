@@ -49,6 +49,7 @@ function UpdateLoginLogout()
 	{
 		console.log("Log Status: " + LoggedIn);
 		
+
 		if(LoggedIn)
 		{
 
@@ -62,6 +63,9 @@ function UpdateLoginLogout()
 			$(".logged-in").hide(500);
 			$(".logged-out").show(500);
 		}
+
+		// no matter what show the text
+		$("#logged-in-text").show(500);
 	});
 }
 
@@ -71,6 +75,7 @@ $(document).ready(function()
 	//hide all of the 
 	$(".logged-in").hide(0);
 	$(".logged-out").hide(0);
+	$("#logged-in-text").hide(0);
 
 	console.log("Initializing Socket.");
 	//establish the socket commection
