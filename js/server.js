@@ -98,7 +98,7 @@ $(document).ready(function()
 			socket.emit('deleteall');	
 		});
 
-		$("#refresh").click(function()
+		$("#refresh").parent().click(function()
 		{
 			//send a request for the whole buffer
 			socket.emit('update');
