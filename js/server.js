@@ -72,12 +72,12 @@ function UpdateLoginLogout()
 //once the document is ready
 $(document).ready(function()
 {
-	//hide all of the 
+	//hide some things on the page load
 	$(".logged-in").hide(0);
 	$(".logged-out").hide(0);
 	$("#logged-in-text").hide(0);
 
-	console.log("Initializing Socket.");
+	console.log("Initializing Socket.");	
 	//establish the socket commection
 	socket = io.connect('http://strugee.net:10000');
 
@@ -90,15 +90,18 @@ $(document).ready(function()
 
 		UpdateLoginLogout();
 
-		//send a request for the whole buffer if the page is the main one
-		// if(location.pathname == "/index.html")
-		// {
-			socket.emit('update');
-		// }
+		//send a request for the whole buffer
+		socket.emit('update');
 
 		$("#delete-all-button").click(function()
 		{
 			socket.emit('deleteall');	
+		});
+
+		$("#refresh").click(function()
+		{
+			//send a request for the whole buffer
+			socket.emit('update');
 		});
 	});
 
@@ -273,6 +276,9 @@ function UpdateUpvotes()
 
 function FullRender()
 {
+	//clears the html in the #content field
+	$("#content").html("");
+
 	//appends everything to the #content
 	for(var i = 0; i < Posts.length; i++)
 	{
