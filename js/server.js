@@ -52,11 +52,13 @@ function UpdateLoginLogout()
 		if(LoggedIn)
 		{
 
+			$("#logged-in-username").html(Cookies.get("username").replace("@seattleacademy.org", ""));
 			$(".logged-in").show(500);
 			$(".logged-out").hide(500);
 		}
 		else
 		{
+			$("#logged-in-username").html("Guest");
 			$(".logged-in").hide(500);
 			$(".logged-out").show(500);
 		}
