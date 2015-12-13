@@ -13,6 +13,9 @@ function AttachSignin(element)
 
       if(Email.indexOf("seattleacademy.org") == -1)
       {
+        //since they didn't have a seattle academy email address, forget their credentials
+        auth2.disconnect();
+
         SignoutUser(function()
         {
           alert("Not a Seattle Academy email address. Please Login again.");
@@ -27,8 +30,6 @@ function AttachSignin(element)
         Cookies.set("token", Token, {expires: 100});
 
         UpdateLoginLogout();
-
-
       }
     }, 
     function(error) 
