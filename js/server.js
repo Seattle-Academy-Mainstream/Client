@@ -285,7 +285,7 @@ function FullRender()
 		var NewDiv = HtmlFromObject(Posts[i]);
 
 		//adds the new object
-		$("#content").append(NewDiv);
+		$("#content").append(NewDiv).masonry('appended', NewDiv);
 	}
 
 	//this sorts the posts by the postdate attribute
