@@ -298,5 +298,5 @@ function FullRender()
 	//add the <hr/> after every div
 	$(".post").after("<hr/>");
 
-
+	UpdateLayout();
 }
