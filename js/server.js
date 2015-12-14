@@ -296,7 +296,7 @@ function FullRender()
 	}).appendTo('#content');
 
 	//add the <hr/> after every div
-	$(".post").after("<hr/>");
+	//$(".post").after("<hr/>");
 
 	UpdateLayout();
 }
