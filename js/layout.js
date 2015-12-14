@@ -11,7 +11,7 @@ function UpdateLayout()
 	});
 }
 
-$(document).ready(function()
+function InitializeMasonry()
 {
 	//on the first update, setup masonry
 	$posts = $("#masonry").masonry({

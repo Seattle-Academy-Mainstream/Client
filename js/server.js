@@ -276,6 +276,9 @@ function UpdateUpvotes()
 
 function FullRender()
 {
+	//initialize masonry
+	InitializeMasonry();
+
 	//clears the html in the #content field
 	$("#content").html("");
 
