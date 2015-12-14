@@ -3,7 +3,7 @@ var $posts;
 
 function UpdateLayout()
 {
-	var $container = $('#masonry');
+	var $container = $('#content');
 
 	$container.imagesLoaded( function() 
 	{
@@ -14,7 +14,7 @@ function UpdateLayout()
 function InitializeMasonry()
 {
 	//on the first update, setup masonry
-	$posts = $("#masonry").masonry({
+	$posts = $("#content").masonry({
 		itemSelector: '.post',
 		columnWidth: 150
 	});
