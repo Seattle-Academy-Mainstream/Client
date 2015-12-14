@@ -16,6 +16,6 @@ function InitializeMasonry()
 	//on the first update, setup masonry
 	$posts = $("#content").masonry({
 		itemSelector: '.post',
-		columnWidth: 150
+		columnWidth: 350
 	});
 }
