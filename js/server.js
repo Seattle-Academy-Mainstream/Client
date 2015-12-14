@@ -277,29 +277,30 @@ function UpdateUpvotes()
 function FullRender()
 {
 	//initialize masonry
-	InitializeMasonry();
+	InitializeMasonry(function()
+	{	
+		//clears the html in the #content field
+		$("#content").html("");
 
-	//clears the html in the #content field
-	$("#content").html("");
+		//appends everything to the #content
+		for(var i = 0; i < Posts.length; i++)
+		{
+			var NewDiv = HtmlFromObject(Posts[i]);
 
-	//appends everything to the #content
-	for(var i = 0; i < Posts.length; i++)
-	{
-		var NewDiv = HtmlFromObject(Posts[i]);
+			//adds the new object
+			$("#content").append(NewDiv).masonry('appended', NewDiv);
+		}
 
-		//adds the new object
-		$("#content").append(NewDiv).masonry('appended', NewDiv);
-	}
+		//this sorts the posts by the postdate attribute
+		//the newest posts should be at the top
+		$('#content .post').sort(function(a, b) 
+		{
+		     return a.dataset.postdate < b.dataset.postdate;
+		}).appendTo('#content');
 
-	//this sorts the posts by the postdate attribute
-	//the newest posts should be at the top
-	$('#content .post').sort(function(a, b) 
-	{
-	     return a.dataset.postdate < b.dataset.postdate;
-	}).appendTo('#content');
+		//add the <hr/> after every div
+		//$(".post").after("<hr/>");
 
-	//add the <hr/> after every div
-	//$(".post").after("<hr/>");
-
-	UpdateLayout();
+		UpdateLayout();
+	});
 }

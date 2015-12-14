@@ -11,11 +11,13 @@ function UpdateLayout()
 	});
 }
 
-function InitializeMasonry()
+function InitializeMasonry(Callback)
 {
 	//on the first update, setup masonry
 	$posts = $("#masonry").masonry({
 		itemSelector: '.post',
 		columnWidth: 150
 	});
+	
+	Callback();
 }
