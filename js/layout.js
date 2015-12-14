@@ -18,4 +18,4 @@ function InitializeMasonry()
 		itemSelector: '.post',
 		columnWidth: 150
 	});
-});
+}
