@@ -1,4 +1,5 @@
 //initialize global variables
+var FirstUpdate = true;
 var socket;
 var Connected = false;
 var Posts = {};
@@ -48,7 +49,6 @@ function UpdateLoginLogout()
 	IsLoggedIn(function(LoggedIn)
 	{
 		console.log("Log Status: " + LoggedIn);
-		
 
 		if(LoggedIn)
 		{
@@ -76,9 +76,6 @@ $(document).ready(function()
 	$(".logged-in").hide(0);
 	$(".logged-out").hide(0);
 	$("#logged-in-text").hide(0);
-
-	//initialize masonry
-	InitializeMasonry();
 
 	console.log("Initializing Socket.");	
 	//establish the socket commection
@@ -114,6 +111,12 @@ $(document).ready(function()
 		Posts = JSON.parse(data);
 		console.log(Posts);
 		FullRender();
+
+		if (FirstUpdate == true)
+		{
+			InitializeMasonry();
+			FirstUpdate = false;
+		}
 	});
 
 	socket.on('updateupvotes', function (data)
@@ -250,7 +253,7 @@ function HtmlFromObject(InputObject)
 	}
 
 	//sets the new div html
-	$(NewDiv).html("<div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted " + FinalDateString + "</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div>");
+	$(NewDiv).html("<div class = \"inner-post\"><div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted " + FinalDateString + "</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div></div>");
 	
 	//sets up the differences from the template
 	$(NewDiv).find(".text").html(InputObject["Content"]);
@@ -288,18 +291,28 @@ function FullRender()
 		var NewDiv = HtmlFromObject(Posts[i]);
 
 		//adds the new object
-		$("#content").append(NewDiv).masonry('appended', NewDiv);
+		$("#content").append(NewDiv)
 	}
 
 	//this sorts the posts by the postdate attribute
 	//the newest posts should be at the top
-	$('#content .post').sort(function(a, b) 
+	SortedPosts = $('#content .post').sort(function(a, b) 
 	{
 	     return a.dataset.postdate < b.dataset.postdate;
-	}).appendTo('#content');
+	})
 
-	//add the <hr/> after every div
-	//$(".post").after("<hr/>");
+	// add the newly sorted posts to masonry
+	for (i = 0; i < SortedPosts.length; i++)
+	{
+		if ($posts == null)
+		{
+			$('#content').append(SortedPosts[i]);
+		}
+		else
+		{
+			$('#content').append(SortedPosts[i]).masonry("appended", SortedPosts[i]);
+		}
+	}
 
 	UpdateLayout();
 }

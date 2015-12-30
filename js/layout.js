@@ -1,12 +1,11 @@
 //global masonry variable
-var $posts;
+var $posts = null;
 
 function UpdateLayout()
 {
-	var $container = $('#content');
-
-	$container.imagesLoaded( function() 
+	$('#content').imagesLoaded( function() 
 	{
+		console.log("images loaded, layign out");
 		$posts.masonry('layout');
 	});
 }
@@ -15,7 +14,8 @@ function InitializeMasonry()
 {
 	//on the first update, setup masonry
 	$posts = $("#content").masonry({
+		columnWidth: '.post',
 		itemSelector: '.post',
-		columnWidth: 350
+		percentPosition: true
 	});
 }

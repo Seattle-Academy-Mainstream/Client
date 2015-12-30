@@ -380,10 +380,15 @@ hr {
 
 #content .post
 {
+	margin: 0px;
+	padding: 0px;
+}
+
+.post .inner-post
+{
 	background-color: @color-secondary;
-	width: 330px;
 	margin: 5px;
-	padding: 5px;
+	padding: 10px;
 }
 
 #content
@@ -515,9 +520,14 @@ body
 		margin-right: 0em;
 		width: 100%;
 	}
+
+	.post
+	{
+		width: 100%;
+	}
 }
 
-@media (min-width: 500px)
+@media (min-width: 500px) and (max-width: 799px)
 {
 	body
 	{
@@ -541,5 +551,39 @@ body
 		margin-right: auto;
 		width: 50%;
 		display: block;
+	}
+	.post
+	{
+		width: 50%;
+	}
+}
+@media (min-width: 800px)
+{
+	body
+	{
+		font-size: 12pt;
+	}
+
+	#image-crop
+	{
+		padding-top: .6em;
+		padding-bottom: .5em; 
+		width: 100%;
+		display: block;
+	}
+
+	#new-post-container
+	{
+		padding-top: .5em;
+		padding-right: 1em;
+		padding-left: 1em;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		display: block;
+	}
+	.post
+	{
+		width: 33%;
 	}
 }
