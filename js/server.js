@@ -6,18 +6,18 @@ var Posts = {};
 
 // used for the date conversion
 var Months = [];
-Months[1] = 'january';
-Months[2] = 'february';
-Months[3] = 'march';
-Months[4] = 'april';
-Months[5] = 'may';
-Months[6] = 'june';
-Months[7] = 'july';
-Months[8] = 'august';
-Months[9] = 'september';
-Months[10] = 'october';
-Months[11] = 'november';
-Months[12] = 'december';
+Months[1] = 'January';
+Months[2] = 'February';
+Months[3] = 'March';
+Months[4] = 'April';
+Months[5] = 'May';
+Months[6] = 'June';
+Months[7] = 'July';
+Months[8] = 'August';
+Months[9] = 'September';
+Months[10] = 'October';
+Months[11] = 'November';
+Months[12] = 'December';
 
 function IsLoggedIn(Callback)
 {
@@ -52,7 +52,6 @@ function UpdateLoginLogout()
 
 		if(LoggedIn)
 		{
-
 			$("#logged-in-username").html(Cookies.get("username").replace("@seattleacademy.org", ""));
 			$(".logged-in").show(500);
 			$(".logged-out").hide(500);
@@ -117,6 +116,9 @@ $(document).ready(function()
 			InitializeMasonry();
 			FirstUpdate = false;
 		}
+
+		// whenever we get an update, also update the upvotes
+		UpdateUpvotes();
 	});
 
 	socket.on('updateupvotes', function (data)
@@ -254,7 +256,7 @@ function HtmlFromObject(InputObject)
 
 	//sets the new div html
 	$(NewDiv).html("<div class = \"inner-post\"><div class = \"footer\"><div class = \"author\"><strong class = \"author-text\"></strong> posted " + FinalDateString + "</div></div><table><tr class = \"content\"><td class = \"upvotes\"><div class = \"upvote-icon\" onclick = \"Upvote(this);\"></div><div class = \"upvote-number\"></div></td><td class = \"text\"></td></tr></table><div class = \"post-image\"></div></div>");
-	
+
 	//sets up the differences from the template
 	$(NewDiv).find(".text").html(InputObject["Content"]);
 	$(NewDiv).find(".upvote-number").html(InputObject["Upvotes"].length);	
@@ -274,9 +276,18 @@ function UpdateUpvotes()
 	console.log("update upvotes");
 	for(var i = 0; i < Posts.length; i++)
 	{
-		console.log(Posts[i]["Upvotes"].length);
-
 		$("#" + Posts[i]["ID"] + " .upvote-number").html(Posts[i]["Upvotes"].length);
+
+		// if the username is in the array, make the upvote icon a different color
+		var Username = Cookies.get("username");
+		if ($.inArray(Username, Posts[i]["Upvotes"]) > -1)
+		{
+			$("#" + Posts[i]["ID"] + " .upvote-icon").addClass("active");
+		}
+		else
+		{
+			$("#" + Posts[i]["ID"] + " .upvote-icon").removeClass("active");
+		}
 	}
 }
 

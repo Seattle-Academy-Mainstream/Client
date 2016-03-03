@@ -15,7 +15,7 @@ function AttachSignin(element)
       {
         //since they didn't have a seattle academy email address, forget their credentials
         auth2.disconnect();
-
+        
         SignoutUser(function()
         {
           alert("Not a Seattle Academy email address. Please Login again.");
@@ -44,7 +44,7 @@ $(document).ready(function()
     // Retrieve the singleton for the GoogleAuth library and set up the client.
     auth2 = gapi.auth2.init({
       client_id: '533332380921-7m8eoi4968kvl1mmr0kk3clco25loemg.apps.googleusercontent.com',
-      cookiepolicy: 'single_host_origin',
+      cookiepolicy: 'single_host_origin'
     });
     AttachSignin(document.getElementById('log-in-outer'));
   });
@@ -52,7 +52,7 @@ $(document).ready(function()
 
 function SignoutUser(Callback)
 {
-  auth2.signOut().then(function () 
+  auth2.signOut().then(function ()
   {
     Callback();
   });

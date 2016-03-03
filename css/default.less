@@ -177,11 +177,11 @@
 	height: @button-height;
 }
 
-#settings
+#help
 {
 	@write-button-width: 2.32em;
 	
-	background-image: url("../img/settings.png");
+	background-image: url("../img/help.png");
 	background-size: 85%;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -410,9 +410,8 @@ hr {
 	//center it
 	margin-left: auto;
 	margin-right: auto;
-
-	cursor: pointer;
 	background-image: url("../img/upvote.png");
+	cursor: pointer;
 	background-size: 85%;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -421,14 +420,10 @@ hr {
 	background-color: transparent;
 }
 
-.upvote-icon:hover
-{
-	background-image: url("../img/upvote-hover.png");
-}
-
+// if its active, override image icon
 .upvote-icon.active
 {
-	background-image: url("../img/upvote-click.png");
+	background-image: url("../img/upvote-hover.png");
 }
 
 .post .upvotes
@@ -532,6 +527,11 @@ body
 	body
 	{
 		font-size: 12pt;
+	}
+
+	.button-text
+	{
+		display: none !important;
 	}
 
 	#image-crop
